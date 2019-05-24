@@ -3,23 +3,25 @@
 
 		<title>Pals for Padawans</title>
 		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="style.css" media="screen">
+		<script src="index.js" charset="utf-8" defer></script>
 
 	</head>
 	<body>
 		<header>
 
-			<a class="site-title title"><h1>Cat Title</h1></a>
+			<a class="site-title title" href="#"><h1>Cat Title</h1></a>
 			<h2 class="title">Insert Cute Subtitle Here</h2>
 
 			<nav class="navbar">
 				<ul class="navlist">
 
-					<li class="navitem"><a href="#">Add a cat</a></li>
-					<li class="navitem"><a href="#">Adoption Quiz</a></li>
-					<li class="navitem"><a href="#">About Us</a></li>
+					<li class="navitem navlink"><a href="#">Add a cat</a></li>
+					<li class="navitem navlink"><a href="#">Adoption Quiz</a></li>
+					<li class="navitem navlink"><a href="#">About Us</a></li>
 					<li class="navitem search">
 						<input type="text" id="search-input" placeholder="Search for cats..."/>
-						<button type="button" id="search-button">
+						<button type="button" id="search-button"><i class="search-icon"></i></button>
 
 				</ul>
 			</nav>
@@ -27,9 +29,9 @@
 		</header>
 
 		<!-- THIS INFO CARD HOLDS THE FILTERING OPTIONS FOR THE KITTENS -->
-		<sidebar class="filter-box">
+		<!-- <sidebar class="filter-box">
 			Filters
-		</sidebar>
+		</sidebar> -->
 
 		<!-- THIS CONTAINER IS FOR ALL KITTEN CARDS -->
 		<content class="kitten-container">
@@ -47,9 +49,9 @@
 		</content>
 
 		<!-- THIS CONTAINER WILL DISPLAY MORE INFO ABOUT THE KITTEN -->
-		<sidebar class="info-box">
+		<!-- <sidebar class="info-box">
 			Info
-		</sidebar>
+		</sidebar> -->
 
 	</body>
 </html>
