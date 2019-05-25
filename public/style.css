@@ -1,0 +1,123 @@
+/* COLOR SCHEME:
+
+ (feel free to change I just needed colors for debug)
+
+ Base: #444444
+ Secondary: #ECB85E
+ Tertiary: #CEA152
+ Detail: #FAF5D6
+ Highlight: #E2DDB7
+
+ */
+
+ /* ======START OF MAIN LAYOUT CSS====== */
+
+ body {
+
+   /* Page Background Color */
+   background-color: #a1b8c6;
+
+   /* Page Font */
+   font-family: 'Scada', sans-serif;
+
+   margin: 0px;
+ }
+
+header {
+
+  /* Header Color */
+  background-color: #000000;
+}
+
+.title {
+  color: #000000;
+  text-decoration: none;
+}
+
+.site-title {
+  /* Title Font */
+  font-family: 'Audiowide', sans-serif;
+  font-size: 30px;
+  text-shadow: -2px 0 #ffdd00, 0 2px #ffdd00, 2px 0 #ffdd00, 0 -2px #ffdd00;
+
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.site-subtitle {
+  color: #ffdd00;
+}
+
+.site-title h1, h2{
+  margin: 0px;
+  margin-left: 20px;
+}
+
+.navbar {
+  /* Navber Color */
+  background-color: #465560;
+
+}
+
+.navlist{
+
+  padding-left: 15px;
+
+}
+
+.navitem {
+  color: #a1b8c6;
+  font-size: 20px;
+
+  padding: 10px;
+
+  display: inline-block;
+}
+
+.navlink a{
+  color: inherit;
+  text-decoration: none;
+}
+
+.navlink:hover{
+
+  /* Hover Colors */
+  color: #ffdd00;
+  background-color: #343f47;
+
+}
+
+.search {
+
+  padding: 7px;
+
+  position: absolute;
+  right: 10px;
+}
+
+.search input {
+  background-color: #f7f6f2;
+  font-family: 'Scada', sans-serif;
+  font-size: 15px;
+
+  height: 30px;
+  width: 150px;
+}
+
+/* ======END OF MAIN LAYOUT CSS====== */
+
+/* ======START OF KITTEN CONTAINER CSS====== */
+
+.kitten-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.kitten-card{
+  background-color: #f7f6f2;
+
+  margin: 10px;
+  padding: 10px;
+}
+
+/* ======END OF KITTEN CONTAINER CSS====== */
