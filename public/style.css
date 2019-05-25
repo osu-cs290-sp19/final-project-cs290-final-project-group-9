@@ -17,6 +17,9 @@
    /* Page Background Color */
    background-color: #cccccc;
 
+   /* Page Font */
+   font-family: 'Scada', sans-serif;
+
    margin: 0px;
  }
 
@@ -29,29 +32,37 @@ header {
 .title {
   color: #000000;
   text-decoration: none;
-
-  margin-top: 15px;
-
-  display: inline-block;
 }
 
 .site-title {
-  margin-left: 20px;
+  /* Title Font */
+  font-family: 'Audiowide', sans-serif;
+  font-size: 30px;
+
+  margin-top: 20px;
   margin-right: 10px;
 }
 
 .site-title h1, h2{
   margin: 0px;
+  margin-left: 20px;
 }
 
 .navbar {
-
   /* Navber Color */
   background-color: #ffffff;
+
+}
+
+.navlist{
+
+  padding-left: 15px;
+
 }
 
 .navitem {
   color: #000000;
+  font-size: 20px;
 
   padding: 10px;
 
@@ -72,15 +83,34 @@ header {
 }
 
 .search {
+  padding: 7px;
 
   position: absolute;
   right: 10px;
+}
+
+.search input {
+  font-family: 'Scada', sans-serif;
+  font-size: 15px;
+
+  height: 30px;
+  width: 150px;
 }
 
 /* ======END OF MAIN LAYOUT CSS====== */
 
 /* ======START OF KITTEN CONTAINER CSS====== */
 
+.kitten-container {
+  display: flex;
+  flex-wrap: wrap;
+}
 
+.kitten-card{
+  background-color: #FFFFFF;
+
+  margin: 10px;
+  padding: 10px;
+}
 
 /* ======END OF KITTEN CONTAINER CSS====== */
