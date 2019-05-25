@@ -15,7 +15,7 @@
  body {
 
    /* Page Background Color */
-   background-color: #cccccc;
+   background-color: #a1b8c6;
 
    /* Page Font */
    font-family: 'Scada', sans-serif;
@@ -26,7 +26,7 @@
 header {
 
   /* Header Color */
-  background-color: #ECB85E;
+  background-color: #000000;
 }
 
 .title {
@@ -38,9 +38,14 @@ header {
   /* Title Font */
   font-family: 'Audiowide', sans-serif;
   font-size: 30px;
+  text-shadow: -2px 0 #ffdd00, 0 2px #ffdd00, 2px 0 #ffdd00, 0 -2px #ffdd00;
 
   margin-top: 20px;
   margin-right: 10px;
+}
+
+.site-subtitle {
+  color: #ffdd00;
 }
 
 .site-title h1, h2{
@@ -50,7 +55,7 @@ header {
 
 .navbar {
   /* Navber Color */
-  background-color: #ffffff;
+  background-color: #465560;
 
 }
 
@@ -61,7 +66,7 @@ header {
 }
 
 .navitem {
-  color: #000000;
+  color: #a1b8c6;
   font-size: 20px;
 
   padding: 10px;
@@ -77,12 +82,13 @@ header {
 .navlink:hover{
 
   /* Hover Colors */
-  color: #ECB85E;
-  background-color: #e0e0e0;
+  color: #ffdd00;
+  background-color: #343f47;
 
 }
 
 .search {
+
   padding: 7px;
 
   position: absolute;
@@ -90,6 +96,7 @@ header {
 }
 
 .search input {
+  background-color: #f7f6f2;
   font-family: 'Scada', sans-serif;
   font-size: 15px;
 
@@ -107,7 +114,7 @@ header {
 }
 
 .kitten-card{
-  background-color: #FFFFFF;
+  background-color: #f7f6f2;
 
   margin: 10px;
   padding: 10px;
