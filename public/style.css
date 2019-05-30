@@ -15,7 +15,10 @@
  body {
 
    /* Page Background Color */
-   background-color: #cccccc;
+   background-color: #a1b8c6;
+
+   /* Page Font */
+   font-family: 'Scada', sans-serif;
 
    margin: 0px;
  }
@@ -23,35 +26,48 @@
 header {
 
   /* Header Color */
-  background-color: #ECB85E;
+  background-color: #000000;
 }
 
 .title {
   color: #000000;
   text-decoration: none;
-
-  margin-top: 15px;
-
-  display: inline-block;
 }
 
 .site-title {
-  margin-left: 20px;
+  /* Title Font */
+  font-family: 'Audiowide', sans-serif;
+  font-size: 30px;
+  text-shadow: -2px 0 #ffdd00, 0 2px #ffdd00, 2px 0 #ffdd00, 0 -2px #ffdd00;
+
+  margin-top: 20px;
   margin-right: 10px;
+}
+
+.site-subtitle {
+  color: #ffdd00;
 }
 
 .site-title h1, h2{
   margin: 0px;
+  margin-left: 20px;
 }
 
 .navbar {
-
   /* Navber Color */
-  background-color: #ffffff;
+  background-color: #465560;
+
+}
+
+.navlist{
+
+  padding-left: 15px;
+
 }
 
 .navitem {
-  color: #000000;
+  color: #a1b8c6;
+  font-size: 20px;
 
   padding: 10px;
 
@@ -66,21 +82,42 @@ header {
 .navlink:hover{
 
   /* Hover Colors */
-  color: #ECB85E;
-  background-color: #e0e0e0;
+  color: #ffdd00;
+  background-color: #343f47;
 
 }
 
 .search {
 
+  padding: 7px;
+
   position: absolute;
   right: 10px;
+}
+
+.search input {
+  background-color: #f7f6f2;
+  font-family: 'Scada', sans-serif;
+  font-size: 15px;
+
+  height: 30px;
+  width: 150px;
 }
 
 /* ======END OF MAIN LAYOUT CSS====== */
 
 /* ======START OF KITTEN CONTAINER CSS====== */
 
+.kitten-container {
+  display: flex;
+  flex-wrap: wrap;
+}
 
+.kitten-card{
+  background-color: #f7f6f2;
+
+  margin: 10px;
+  padding: 10px;
+}
 
 /* ======END OF KITTEN CONTAINER CSS====== */
