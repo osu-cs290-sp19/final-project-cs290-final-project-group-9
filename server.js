@@ -23,7 +23,8 @@ var kittens = {
 
 //home page
 app.get('/', function(req, res, next) {
-    res.status(200).render('kittenContainer', kittens);
+    //unsure what object to create and send for main page to render all needed partials
+    res.status(200).render('mainPage', kittens);
 });
 
 //style sheet
@@ -40,7 +41,6 @@ app.get('*/index.js', function(req, res, next) {
 app,get('*', function(req, res, next) {
     res.status(404).render('404');
 })
-
 
 
 //Listener
