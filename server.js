@@ -5,7 +5,7 @@ var handlebars = require('handlebars');
 var exphbs = require('express-handlebars');
 
 var app = express();
-var port = process.env.PORT || 3001;
+var port = process.env.PORT || 3001 || 3330;
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
@@ -17,6 +17,8 @@ var kittenData = require('./kittenData');
 var kittens = {
     kittens: kittenData
 };
+
+//Need to compile Handlebars templates here?
 
 
 //Routing
