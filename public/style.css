@@ -138,10 +138,9 @@ header {
   position: fixed;
   right: 0px;
   height: 70%;
-  margin: 0;
   padding: 10px;
-  margin-left: -250px;
-  margin-right: 70px;
+  margin: 0;
+  margin-right: 10px;
   width: 350px;
   overflow-y: auto;
 
