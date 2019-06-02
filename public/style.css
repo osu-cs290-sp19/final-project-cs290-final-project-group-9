@@ -111,13 +111,54 @@ header {
 .kitten-container {
   display: flex;
   flex-wrap: wrap;
+  margin: 50px 20%;
+  margin-top: 10px;
+  margin-left: 300px;
+  position: absolute;
 }
 
 .kitten-card{
   background-color: #f7f6f2;
 
+
   margin: 10px;
   padding: 10px;
+  box-shadow: 10px 10px 10px #656e74;
 }
 
 /* ======END OF KITTEN CONTAINER CSS====== */
+
+/* ======START OF KITTEN INFO NAVBAR===== */
+
+.info-box{
+  background-color:  #f7f6f2;
+
+  display: inline-block;
+  margin: 0;
+  margin-left: 10px;
+  padding: 10px;
+  width: 250px;
+  height: 70%;
+  overflow: auto;
+  z-index: 1;
+  position: fixed;
+
+  text-align: left;
+  border-radius: 25px;
+  box-shadow: 10px 10px 5px #656e74;
+}
+
+.sidebar-header{
+  text-align: center;
+  text-decoration: underline;
+}
+
+/* ======END OF KITTEN INFO NAVBAR===== */
+
+/* ======START OF KITTEN ADOPT MODAL====== */
+
+.hidden{
+  display: none;
+}
+
+/* ======END OF KITTEN ADOPT MODAL====== */
