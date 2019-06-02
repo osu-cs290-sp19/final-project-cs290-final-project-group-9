@@ -161,4 +161,39 @@ header {
   display: none;
 }
 
+#modal-backdrop{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+#add-cat-modal{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1010;
+  overflow: scroll;
+}
+
+.modal-dialog{
+  background-color: #f7f6f2;
+  border-radius: 15px;
+
+  width: auto;
+  max-width: 300px;
+  min-width: 200px;
+  margin: 100px auto;
+  padding: 10px;
+}
+
+.modal-header{
+  text-align: center;
+}
+
 /* ======END OF KITTEN ADOPT MODAL====== */
