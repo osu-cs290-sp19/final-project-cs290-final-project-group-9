@@ -18,8 +18,8 @@ var kittens = {
     kittens: kittenData
 };
 
-//Need to compile Handlebars templates here?
-
+//Need to compile Handlebars partials here?
+var kittenContainerTemplate = Handlebars.compile(Handlebars.templates.kittenContainer);
 
 //Routing
 
