@@ -23,9 +23,15 @@ function getCheckedValue(className){
   for (var i = 0; i < list.length; i++){
     if (list[i].checked) return list[i].value;
   }
+  return null;
 }
 
 function validateCat(cat){
+
+  if (!cat.name) return false;
+  if(isNaN(cat.age) || cat.age <= 0) return false;
+  if(cat.sex != 'male' && cat.sex != 'female') return false;
+  if (!coat) return false;
 
   return true;
 }
@@ -36,17 +42,17 @@ cancelButton.addEventListener('click', closeModal);
 
 submitButton.addEventListener('click', function(event){
 
-  // GET ALL THE FUCKING SHIT
+  // GET ALL THE SHIT
   // PUT IT ALL IN A OBJECT
 
   var cat = {
     name: document.getElementById('cat-name-input').value,
-    age: document.getElementById('cat-age-input').value,
+    age: parseInt(document.getElementById('cat-age-input').value, 10),
     sex: getCheckedValue('cat-sex-input'),
     chonk: document.getElementById('cat-chonk-input').checked,
     coat: getCheckedValue('cat-fur-input'),
-    play: document.getElementById('cat-play-input').value,
-    cuddle: document.getElementById('cat-cuddle-input').value,
+    play: parseInt(document.getElementById('cat-play-input').value, 10),
+    cuddle: parseInt(document.getElementById('cat-cuddle-input').value, 10),
     pets: document.getElementById('cat-pet-input').checked,
     desc: document.getElementById('cat-desc-input').value,
     img: document.getElementById('cat-img-input').value
@@ -58,6 +64,8 @@ submitButton.addEventListener('click', function(event){
 
     // SEND THE POST REQUEST
 
+  } else {
+    alert("fill in the form with valid information, you must.");
   }
 });
 
