@@ -138,16 +138,9 @@ header {
   position: fixed;
   right: 0px;
   height: 70%;
-<<<<<<< HEAD
-  margin: 0;
-  padding: 10px;
-  margin-left: -250px;
-  margin-right: 70px;
-=======
   padding: 10px;
   margin: 0;
   margin-right: 10px;
->>>>>>> 98ead71abba9f721eb51e6f2714e851df9b7531a
   width: 350px;
   overflow-y: auto;
 
