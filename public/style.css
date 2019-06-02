@@ -124,6 +124,7 @@ header {
   margin: 10px;
   padding: 10px;
   box-shadow: 10px 10px 10px #656e74;
+  text-align: center;
 }
 
 /* ======END OF KITTEN CONTAINER CSS====== */
@@ -133,15 +134,16 @@ header {
 .info-box{
   background-color:  #f7f6f2;
 
-  display: inline-block;
-  margin: 0;
-  margin-left: 10px;
-  padding: 10px;
-  width: 250px;
-  height: 70%;
-  overflow: auto;
-  z-index: 1;
+  z-index: 1000;
   position: fixed;
+  right: 0px;
+  height: 70%;
+  margin: 0;
+  padding: 10px;
+  margin-left: -250px;
+  margin-right: 70px;
+  width: 350px;
+  overflow-y: auto;
 
   text-align: left;
   border-radius: 25px;
@@ -154,6 +156,29 @@ header {
 }
 
 /* ======END OF KITTEN INFO NAVBAR===== */
+
+/* ======START OF KITTEN FILTER SEARCH BAR===== */
+
+.filter-search{
+  display: inline-block;
+  background-color: #fce279;
+  width: 250px;
+  height: 700px;
+  margin-left: 10px;
+  padding: 10px;
+  z-index: 1;
+  position: relative;
+  text-align: left;
+  border-radius: 25px;
+  box-shadow: 10px 10px 5px #656e74;
+}
+
+.filter-header{
+  text-align: center;
+  text-decoration: underline;
+}
+
+/* ======END OF KITTEN FILTER SEARCH BAR===== */
 
 /* ======START OF KITTEN ADOPT MODAL====== */
 
@@ -184,3 +209,39 @@ header {
 }
 
 /* ======END OF ABOUT US PAGE===== */
+#modal-backdrop{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+#add-cat-modal{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1010;
+  overflow: scroll;
+}
+
+.modal-dialog{
+  background-color: #f7f6f2;
+  border-radius: 15px;
+
+  width: auto;
+  max-width: 300px;
+  min-width: 200px;
+  margin: 100px auto;
+  padding: 10px;
+}
+
+.modal-header{
+  text-align: center;
+}
+
+/* ======END OF KITTEN ADOPT MODAL====== */
