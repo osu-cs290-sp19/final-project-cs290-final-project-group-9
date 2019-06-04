@@ -105,6 +105,8 @@ submitButton.addEventListener('click', function(event){
         console.log('==newCatHTML:', newCatHTML);
         var kittenContainer = document.getElementsByClassName('kitten-container')[0];
         kittenContainer.insertAdjacentHTML('beforeEnd', newCatHTML);
+        var lastCat = document.getElementsByClassName('kitten-card');
+        lastCat[lastCat.length - 1].addEventListener('click', kittenClicked);
 
       } else {
         var message = event.target.response;
@@ -125,9 +127,30 @@ submitButton.addEventListener('click', function(event){
 
 // START OF KITTEN CLICK SIDEBAR POPUP
 
-var kittenCard = document.getElementsByClassName('kitten-card');
-var kittenInfo = document.getElementById('sidebar-dialogue');
+function kittenClicked(event){
+  var selectedCat = event.currentTarget;
 
-kittenCard[0].addEventListener('click', function(event) {
-  kittenInfo.classList.remove('hidden');
-});
+  var catStats = {
+    name: selectedCat.getElementsByClassName('kitten-card-name-p')[0].textContent.trim(),
+    sex: selectedCat.getElementsByClassName('kitten-sex')[0].textContent.trim(),
+    age: selectedCat.getElementsByClassName('kitten-age')[0].textContent.trim(),
+    desc: selectedCat.getElementsByClassName('kitten-desc')[0].textContent.trim()
+  }
+
+  var sidebar = {
+    name: document.getElementById('sidebar-name'),
+    sex: document.getElementById('sidebar-sex'),
+    age: document.getElementById('sidebar-age'),
+    desc: document.getElementById('sidebar-desc')
+  }
+
+  sidebar.name.textContent = "Name: " + catStats.name;
+  sidebar.sex.textContent = "Sex: " + catStats.sex;
+  sidebar.age.textContent = "Age: " + catStats.age;
+  sidebar.desc.textContent = "Description: " + catStats.desc;
+}
+
+var kittenCards = document.getElementsByClassName('kitten-card');
+for (var i = 0; i < kittenCards.length; i++){
+  kittenCards[i].addEventListener('click', kittenClicked);
+}
