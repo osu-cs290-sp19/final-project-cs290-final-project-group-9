@@ -154,6 +154,21 @@ header {
   text-decoration: underline;
 }
 
+.adopt-button{
+  background-color: rgb(238, 37, 37);
+  border: none;
+  color: white;
+  height: 50px;
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgb(66, 66, 66);
+  text-shadow: -2px 0 #000000, 0 2px #000000, 2px 0 #000000, 0 -2px #000000;
+}
+
 /* ======END OF KITTEN INFO NAVBAR===== */
 
 /* ======START OF KITTEN FILTER SEARCH BAR===== */
