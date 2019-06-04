@@ -129,11 +129,13 @@ header {
 .kitten-card-img img{
   width: 200px;
   height: 200px;
-  
+}
+
 .kitten-card:hover{
   background-color: #fce279;
   cursor: pointer;
-  font-size: 120%;
+  box-shadow: 15px 15px 15px #656e74;
+
 }
 
 /* ======END OF KITTEN CONTAINER CSS====== */
@@ -180,7 +182,6 @@ header {
 .adopt-button:hover{
   background-color: rgb(0, 140, 255);
   cursor: pointer;
-  font-size: 120%;
 }
 
 /* ======END OF KITTEN INFO NAVBAR===== */
