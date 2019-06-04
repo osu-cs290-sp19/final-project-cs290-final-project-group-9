@@ -5,12 +5,6 @@
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="style.css" media="screen">
 		<link href="https://fonts.googleapis.com/css?family=Audiowide|Scada&display=swap" rel="stylesheet">
-		
-		<!-- Handlebars stuff -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.runtime.js"></script>
-    	<!-- <script src="/twitTemplate.js"></script> -->
-		<!-- need a reference to compiled Handlebars templates? -->
-		
 		<script src="index.js" charset="utf-8" defer></script>
 
 	</head>
@@ -23,8 +17,8 @@
 			<nav class="navbar">
 				<ul class="navlist">
 
-					<li class="navitem navlink"><a href="#">Donate a cat</a></li>
-					<li class="navitem navlink"><a href="#">Adoption Quiz</a></li>
+					<li class="navitem navlink" id="donate"><a href="#">Donate a cat</a></li>
+					<li class="navitem navlink" id="Quiz"><a href="#">Adoption Quiz</a></li>
 					<li class="navitem navlink"><a href="#">About Us</a></li>
 					<li class="navitem search">
 						<input type="text" id="search-input" placeholder="Search for cats..."/>
@@ -35,9 +29,7 @@
 
 		</header>
 
-		<!-- The only pages we have so far are the main page and the 404 page-->
-		<!-- Can include informational page and maybe an About Us page or something later-->
-		{{{content}}}
+		{{{body}}}
 
 	</body>
 </html>

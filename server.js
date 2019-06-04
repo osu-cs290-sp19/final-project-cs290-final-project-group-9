@@ -5,7 +5,7 @@ var handlebars = require('handlebars');
 var exphbs = require('express-handlebars');
 
 var app = express();
-var port = process.env.PORT || 3001 || 3330;
+var port = process.env.PORT || 3330;
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
@@ -18,14 +18,12 @@ var kittens = {
     kittens: kittenData
 };
 
-//Need to compile Handlebars templates here?
-
 
 //Routing
 
 //home page
 app.get('/', function(req, res, next) {
-    //unsure what object to create and send for main page to render all needed partials
+    //this works fine honestly
     res.status(200).render('mainPage', kittens);
 });
 
@@ -39,8 +37,13 @@ app.get('*/index.js', function(req, res, next) {
     res.status(200).sendFile(path.join(__dirname, 'public', 'index.js'));
 });
 
+//about us page
+app.get('*/aboutus', function(req, res, next) {
+    res.status(200).render('AboutUs');
+});
+
 //404 page
-app,get('*', function(req, res, next) {
+app.get('*', function(req, res, next) {
     res.status(404).render('404');
 })
 

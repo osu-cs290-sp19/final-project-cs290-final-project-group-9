@@ -1,62 +1,61 @@
-<!-- ADD A CAT MODAL -->
 <div id="modal-backdrop" class="hidden"></div>
 <div id="add-cat-modal" class="hidden">
-    <div class="modal-dialog">
+  <div class="modal-dialog">
 
     <div class="modal-header">
-        <h3>Donate a Cat</h3>
+      <h3>Donate a Cat</h3>
     </div>
 
     <div class="modal-body">
-        <div class="modal-input">
-        <label for="cat-name-input">Name</label>
+      <div class="modal-input">
+        <label for="cat-name-input">Name:</label>
         <textarea id="cat-name-input"></textarea>
-        </div>
-                <div class="modal-input">
-        <label for="cat-age-input">Age</label>
+      </div>
+      <div class="modal-input">
+        <label for="cat-age-input">Age:</label>
         <input id="cat-age-input" type="number" min="0"></input>
-        </div>
-                <div class="modal-input">
-        <label for="cat-sex-input">Sex</label>
-        <input name="sex" class="cat-sex-input" type="radio">male</input>
-                    <input name="sex" class="cat-sex-input" type="radio">female</input>
-        </div>
-                <div class="modal-input">
+      </div>
+      <div class="modal-input">
+        <label for="cat-sex-input">Sex:</label>
+        <input name="sex" class="cat-sex-input" type="radio" value="male">male</input>
+        <input name="sex" class="cat-sex-input" type="radio" value="female">female</input>
+      </div>
+      <div class="modal-input">
         <label for="cat-chonk-input">Chonk?</label>
-        <input class="cat-chonk-input" type="checkbox"></input>
-        </div>
-                <div class="modal-input">
-        <label for="cat-fur-input">Coat Length</label>
-        <input name="fur" class="cat-fur-input" type="radio">short</input>
-                    <input name="fur" class="cat-fur-input" type="radio">medium</input>
-                    <input name="fur" class="cat-fur-input" type="radio">long</input>
-        </div>
-                <div class="modal-input">
-        <label for="cat-play-input">Playfulness (1-5)</label>
+        <input id="cat-chonk-input" type="checkbox"></input>
+      </div>
+      <div class="modal-input">
+        <label for="cat-fur-input">Coat Length:</label>
+        <input name="fur" class="cat-fur-input" type="radio" value="short">short</input>
+        <input name="fur" class="cat-fur-input" type="radio" value="medium">medium</input>
+        <input name="fur" class="cat-fur-input" type="radio" value="long">long</input>
+      </div>
+      <div class="modal-input">
+        <label for="cat-play-input">Playfulness (1-5):</label>
         <input id="cat-play-input" type="number" min="1" max="5"></input>
-        </div>
-                <div class="modal-input">
-        <label for="cat-cuddle-input">Cuddliness (1-5)</label>
+      </div>
+      <div class="modal-input">
+        <label for="cat-cuddle-input">Cuddliness (1-5):</label>
         <input id="cat-cuddle-input" type="number" min="1" max="5"></input>
-        </div>
-                <div class="modal-input">
+      </div>
+      <div class="modal-input">
         <label for="cat-pet-input">Good w/ other pets?</label>
-        <input class="cat-pet-input" type="checkbox"></input>
-        </div>
-                <div class="modal-input">
-        <label for="cat-desc-input">Description</label>
+        <input id="cat-pet-input" type="checkbox"></input>
+      </div>
+      <div class="modal-input">
+        <label for="cat-desc-input">Description:</label>
         <textarea id="cat-desc-input"></textarea>
-        </div>
-                <div class="modal-input">
-        <label for="cat-img-input">Image URL</label>
+      </div>
+      <div class="modal-input">
+        <label for="cat-img-input">Image URL:</label>
         <textarea id="cat-img-input"></textarea>
-        </div>
+      </div>
     </div>
 
     <div class="modal-footer">
-        <button type="button" class="modal-cancel-button">Cancel</button>
-        <button type="button" class="modal-accept-button">Submit</button>
+      <button type="button" class="modal-cancel-button">Cancel</button>
+      <button type="button" class="modal-submit-button">Submit</button>
     </div>
 
-    </div>
+  </div>
 </div>

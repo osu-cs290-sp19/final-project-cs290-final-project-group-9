@@ -197,6 +197,29 @@ header {
   display: none;
 }
 
+/* ======END OF KITTEN ADOPT MODAL====== */
+
+/* ======START OF 404 PAGE===== */
+
+.error-container{
+  margin: 100px;
+  padding: 100px;
+  
+  text-align: center;
+}
+
+/* ======END OF 404 PAGE PAGE===== */
+
+/* ======START OF ABOUT US PAGE===== */
+
+.about-us{
+  margin: 100px;
+  padding: 100px;
+  
+  text-align: center;
+}
+
+/* ======END OF ABOUT US PAGE===== */
 #modal-backdrop{
   position: fixed;
   top: 0;
