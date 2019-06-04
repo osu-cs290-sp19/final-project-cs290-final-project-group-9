@@ -13,8 +13,25 @@ var cancelButton = document.getElementsByClassName('modal-cancel-button')[0];
 
 var submitButton = document.getElementsByClassName('modal-submit-button')[0];
 
+function clearCheckedValues(className){
+  var list = document.getElementsByClassName(className);
+  for (var i = 0; i < list.length; i++){
+    list[i].checked = false;
+  }
+}
+
 function clearDonateInputs(){
   // CLEARS ALL INPUT FIELDS OF CAT MODAL
+  document.getElementById('cat-name-input').value = "";
+  document.getElementById('cat-age-input').value = "";
+  clearCheckedValues('cat-sex-input');
+  document.getElementById('cat-chonk-input').checked = false;
+  clearCheckedValues('cat-fur-input');
+  document.getElementById('cat-play-input').value = "";
+  document.getElementById('cat-cuddle-input').value = "";
+  document.getElementById('cat-pet-input').checked = false;
+  document.getElementById('cat-desc-input').value = "";
+  document.getElementById('cat-img-input').value = "";
 }
 
 function closeDonateModal(event){
