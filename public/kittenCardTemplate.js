@@ -5,7 +5,7 @@ templates['kittenCard'] = template({"compiler":[7,">= 4.0.0"],"main":function(co
 
   return "<article class=\"kitten-card\">\r\n    <div class=\"kitten-card-img\">\r\n        <img src=\"http://placekitten.com/200/200\">\r\n    </div>\r\n    <div class=\"kitten-card-name\">\r\n        <p> "
     + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
-    + " </p>\r\n    </div>\r\n    <!-- The structure below is subject to change -->\r\n    <div class=\"kitten-details\">\r\n        <p> "
+    + " </p>\r\n    </div>\r\n    <!-- The structure below is subject to change -->\r\n    <div class=\"kitten-details hidden\">\r\n        <p> "
     + alias4(((helper = (helper = helpers.sex || (depth0 != null ? depth0.sex : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"sex","hash":{},"data":data}) : helper)))
     + " </p>\r\n        <p> "
     + alias4(((helper = (helper = helpers.age || (depth0 != null ? depth0.age : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"age","hash":{},"data":data}) : helper)))
@@ -25,6 +25,6 @@ templates['kittenCard'] = template({"compiler":[7,">= 4.0.0"],"main":function(co
     + alias4(((helper = (helper = helpers.coatlength || (depth0 != null ? depth0.coatlength : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"coatlength","hash":{},"data":data}) : helper)))
     + " </p>\r\n        <p> "
     + alias4(((helper = (helper = helpers.quiz || (depth0 != null ? depth0.quiz : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"quiz","hash":{},"data":data}) : helper)))
-    + " </p>\r\n    </div>\r\n</article>";
+    + " </p>\r\n    </div>\r\n</article>\r\n";
 },"useData":true});
 })();
