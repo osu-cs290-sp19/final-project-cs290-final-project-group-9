@@ -13,9 +13,14 @@ var cancelButton = document.getElementsByClassName('modal-cancel-button')[0];
 
 var submitButton = document.getElementsByClassName('modal-submit-button')[0];
 
-function closeModal(event){
+function clearDonateInputs(){
+  // CLEARS ALL INPUT FIELDS OF CAT MODAL
+}
+
+function closeDonateModal(event){
   donateModal.classList.toggle('hidden');
   donateModalBG.classList.toggle('hidden');
+  clearDonateInputs();
 }
 
 function getCheckedValue(className){
@@ -31,14 +36,18 @@ function validateCat(cat){
   if (!cat.name) return false;
   if(isNaN(cat.age) || cat.age <= 0) return false;
   if(cat.sex != 'male' && cat.sex != 'female') return false;
-  if (!coat) return false;
+  if (!cat.coat) return false;
+  if (isNaN(cat.play) || cat.play < 1 || cat.play > 5) return false;
+  if (isNaN(cat.cuddle) || cat.cuddle < 1 || cat.cuddle > 5) return false;
+  if (!cat.desc) return false;
+  if (!cat.img) return false;
 
   return true;
 }
 
-donateCat.addEventListener('click', closeModal);
+donateCat.addEventListener('click', closeDonateModal);
 
-cancelButton.addEventListener('click', closeModal);
+cancelButton.addEventListener('click', closeDonateModal);
 
 submitButton.addEventListener('click', function(event){
 
@@ -63,6 +72,26 @@ submitButton.addEventListener('click', function(event){
   if (validateCat(cat)){
 
     // SEND THE POST REQUEST
+    var request = new XMLHttpRequest();
+    var url = '/addCat';
+    request.open('POST', url);
+
+    var requestBody = JSON.stringify(cat);
+    console.log('==requestBody: ', requestBody);
+
+    request.addEventListener('load', function(event){
+      if (event.target.status === 200){
+
+        // SUCCESSFUL POST REQ
+
+      } else {
+        var message = event.target.response;
+        alert("Error submitting cat: " + message);
+      }
+    });
+
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.send(requestBody);
 
   } else {
     alert("fill in the form with valid information, you must.");
