@@ -1,0 +1,40 @@
+{
+    "kittens": [
+        {
+            "name": "Luke",
+            "sex": "male",
+            "age": 3,
+            "img": "http://placekitten.com/200/200",
+            "desc": "a cool cat with a lightsaber",
+            "chonk": true,
+            "cuddle": 2,
+            "play": 4,
+            "pets": true,
+            "coat": "medium"
+        },
+        {
+            "name": "Leia",
+            "sex": "female",
+            "age": 3,
+            "img": "http://placekitten.com/200/200",
+            "desc": "a cool cat with an army and cinnamon bun ears",
+            "chonk": true,
+            "cuddle": 2,
+            "play": 4,
+            "pets": true,
+            "coat": "long"
+        },
+        {
+            "name": "R2D2",
+            "sex": "male",
+            "age": 2,
+            "img": "http://placekitten.com/200/200",
+            "desc": "a cool robo-cat, likes to scream",
+            "chonk": true,
+            "cuddle": 1,
+            "play": 5,
+            "pets": false,
+            "coat": "short"
+        }
+    ]
+}

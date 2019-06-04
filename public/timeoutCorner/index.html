@@ -1,0 +1,272 @@
+<html>
+	<head>
+
+		<title>Pals for Padawans</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="style.css" media="screen">
+		<link href="https://fonts.googleapis.com/css?family=Audiowide|Scada&display=swap" rel="stylesheet">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.runtime.js" defer></script>
+		<script src="./kittenCardTemplate.js" charset="utf-8" defer></script>
+		<script src="index.js" charset="utf-8" defer></script>
+
+	</head>
+	<body>
+		<header>
+
+			<a class="site-title title" href="#"><h1>Padawan Pals</h1></a>
+			<h2 class="site-subtitle title">May the furs be with you</h2>
+
+			<nav class="navbar">
+				<ul class="navlist">
+
+					<li class="navitem navlink" id="donate"><a href="#">Donate a cat</a></li>
+					<li class="navitem navlink" id="Quiz"><a href="#">Adoption Quiz</a></li>
+					<li class="navitem navlink"><a href="/aboutus">About Us</a></li>
+					<li class="navitem search">
+						<input type="text" id="search-input" placeholder="Search for cats..."/>
+						<button type="button" id="search-button"><i class="search-icon"></i></button>
+
+				</ul>
+			</nav>
+
+		</header>
+
+		<!-- THIS INFO CARD HOLDS THE FILTERING OPTIONS FOR THE KITTENS -->
+		<!-- <sidebar class="filter-box">
+			Filters
+		</sidebar> -->
+
+		<!-- THIS CONTAINER IS FOR ALL KITTEN CARDS -->
+		<content class="kitten-container">
+
+			<!-- EXAMPLE OF A KITTEN CARD -->
+			<article class="kitten-card">
+				<div class="kitten-card-img">
+					<img src="http://placekitten.com/200/200">
+				</div>
+				<div class="kitten-card-name">
+					<p>Kitten</p>
+				</div>
+			</article>
+
+			<article class="kitten-card">
+				<div class="kitten-card-img">
+					<img src="http://placekitten.com/200/200">
+				</div>
+				<div class="kitten-card-name">
+					<p>Smitten</p>
+				</div>
+			</article>
+
+			<article class="kitten-card">
+				<div class="kitten-card-img">
+					<img src="http://placekitten.com/200/200">
+				</div>
+				<div class="kitten-card-name">
+					<p>Mitten</p>
+				</div>
+			</article>
+
+			<article class="kitten-card">
+				<div class="kitten-card-img">
+					<img src="http://placekitten.com/200/200">
+				</div>
+				<div class="kitten-card-name">
+					<p>Shittin</p>
+				</div>
+			</article>
+
+			<article class="kitten-card">
+				<div class="kitten-card-img">
+					<img src="http://placekitten.com/200/200">
+				</div>
+				<div class="kitten-card-name">
+					<p>Gittin</p>
+				</div>
+			</article>
+
+			<article class="kitten-card">
+				<div class="kitten-card-img">
+					<img src="http://placekitten.com/200/200">
+				</div>
+				<div class="kitten-card-name">
+					<p>Litten</p>
+				</div>
+			</article>
+
+			<article class="kitten-card">
+				<div class="kitten-card-img">
+					<img src="http://placekitten.com/200/200">
+				</div>
+				<div class="kitten-card-name">
+					<p>Bitten</p>
+				</div>
+			</article>
+
+		</content>
+
+		<!-- THIS CONTAINER WILL DISPLAY MORE INFO ABOUT THE KITTEN -->
+		<sidebar class="info-box">
+			<div id="sidebar-dialog">
+
+				<div class="sidebar-header">
+					<h2>Cat Stats:</h2>
+				</div>
+
+				<div class="sidebar-body">
+					<div id="sidebar-name">
+						<h3>Name: Luke Skypawker</h3>
+					</div>
+					<div id="sidebar-sex">
+							<h3>Sex: Male</h3>
+						</div>
+						<div id="sidebar-age">
+								<h3>Age: 2 years</h3>
+							</div>
+							<div id="sidebar-description">
+									<h3>Description: Likes shiny things.</h3>
+								</div>
+				</div>
+
+				<input class="adopt-button" type="button" value="Adopt Me!">
+
+			</div>
+		</sidebar>
+
+		<!-- FILTER SEARCH CATS-->
+		<sidebar class="filter-search">
+			<div id="filter-cats-dialogue">
+
+				<div class="filter-header">
+					<h2>Filter Search:</h2>
+				</div>
+
+				<div class="filter-body">
+					<div id="filter-search-sex">
+						<h3>Sex:</h3>
+            <input name="sex" class="cat-sex-search" type="radio">male</input>
+						<input name="sex" class="cat-sex-search" type="radio">female</input>
+						<input name="sex" class="cat-sex-search" type="radio">No preference</input>
+					</div>
+				</div>
+
+				<div id="filter-search-age">
+					<h3>Age:</h3>
+					<input name="age" class="cat-age-search" type="radio">0-1 years</input>
+					<input name="age" class="cat-age-search" type="radio">2-5 years</input>
+					<input name="age" class="cat-age-search" type="radio">6-9 years</input>
+					<input name="age" class="cat-age-search" type="radio">10+ years</input>
+					<input name="age" class="cat-age-search" type="radio">No preference</input>
+				</div>
+			</div>
+
+			<div id="filter-search-chonk">
+				<h3>Chonk or No Chonk:</h3>
+				<input name="chonk" class="cat-chonk-search" type="radio" value="true">CHONK!</input>
+				<input name="chonk" class="cat-chonk-search" type="radio" value="false">No chonk...</input>
+				<input name="chonk" class="cat-chonk-search" type="radio" value="null">No preference</input>
+			</div>
+
+			<div id="filter-search-cuddly">
+					<h3>Cuddlyness Rating:</h3>
+					<input name="cuddly" class="cat-cuddly-search" type="radio">1/5</input>
+					<input name="cuddly" class="cat-cuddly-search" type="radio">2/5</input>
+					<input name="cuddly" class="cat-cuddly-search" type="radio">3/5</input>
+					<input name="cuddly" class="cat-cuddly-search" type="radio">4/5</input>
+					<input name="cuddly" class="cat-cuddly-search" type="radio">5/5</input>
+					<input name="cuddly" class="cat-cuddly-search" type="radio">No preference</input>
+				</div>
+
+				<div id="filter-search-playful">
+						<h3>Playfulness Rating:</h3>
+						<input name="playful" class="cat-playful-search" type="radio">1/5</input>
+						<input name="playful" class="cat-playful-search" type="radio">2/5</input>
+						<input name="playful" class="cat-playful-search" type="radio">3/5</input>
+						<input name="playful" class="cat-playful-search" type="radio">4/5</input>
+						<input name="playful" class="cat-playful-search" type="radio">5/5</input>
+						<input name="playful" class="cat-playful-search" type="radio">No preference</input>
+					</div>
+
+					<div id="filter-search-otherPets">
+							<h3>Good With Other Pets:</h3>
+							<input name="otherPets" class="cat-otherPets-search" type="radio">Yes</input>
+							<input name="otherPets" class="cat-otherPets-search" type="radio">No</input>
+							<input name="otherPets" class="cat-otherPets-search" type="radio">No preference</input>
+						</div>
+
+						<div id="filter-search-coatLength">
+								<h3>Coat Length:</h3>
+								<input name="coatLength" class="cat-coatLength-search" type="radio">Short</input>
+								<input name="coatLength" class="cat-coatLength-search" type="radio">Medium</input>
+								<input name="coatLength" class="cat-coatLength-search" type="radio">Long</input>
+								<input name="coatLength" class="cat-coatLength-search" type="radio">No preference</input>
+							</div>
+
+			</div>
+		</sidebar>
+
+		<!-- ADD A CAT MODAL -->
+		<div id="modal-backdrop" class="hidden"></div>
+    <div id="add-cat-modal" class="hidden">
+      <div class="modal-dialog">
+
+        <div class="modal-header">
+          <h3>Donate a Cat</h3>
+        </div>
+
+        <div class="modal-body">
+          <div class="modal-input">
+            <label for="cat-name-input">Name:</label>
+            <textarea id="cat-name-input"></textarea>
+          </div>
+					<div class="modal-input">
+            <label for="cat-age-input">Age:</label>
+            <input id="cat-age-input" type="number" min="0"></input>
+          </div>
+					<div class="modal-input">
+            <label for="cat-sex-input">Sex:</label>
+            <input name="sex" class="cat-sex-input" type="radio" value="male">male</input>
+						<input name="sex" class="cat-sex-input" type="radio" value="female">female</input>
+          </div>
+					<div class="modal-input">
+            <label for="cat-chonk-input">Chonk?</label>
+            <input id="cat-chonk-input" type="checkbox"></input>
+          </div>
+					<div class="modal-input">
+            <label for="cat-fur-input">Coat Length:</label>
+            <input name="fur" class="cat-fur-input" type="radio" value="short">short</input>
+						<input name="fur" class="cat-fur-input" type="radio" value="medium">medium</input>
+						<input name="fur" class="cat-fur-input" type="radio" value="long">long</input>
+          </div>
+					<div class="modal-input">
+            <label for="cat-play-input">Playfulness (1-5):</label>
+            <input id="cat-play-input" type="number" min="1" max="5"></input>
+          </div>
+					<div class="modal-input">
+            <label for="cat-cuddle-input">Cuddliness (1-5):</label>
+            <input id="cat-cuddle-input" type="number" min="1" max="5"></input>
+          </div>
+					<div class="modal-input">
+            <label for="cat-pet-input">Good w/ other pets?</label>
+            <input id="cat-pet-input" type="checkbox"></input>
+          </div>
+					<div class="modal-input">
+            <label for="cat-desc-input">Description:</label>
+            <textarea id="cat-desc-input"></textarea>
+          </div>
+					<div class="modal-input">
+            <label for="cat-img-input">Image URL:</label>
+            <textarea id="cat-img-input"></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="modal-cancel-button">Cancel</button>
+          <button type="button" class="modal-submit-button">Submit</button>
+        </div>
+
+      </div>
+    </div>
+
+	</body>
+</html>
