@@ -99,10 +99,12 @@ submitButton.addEventListener('click', function(event){
     request.addEventListener('load', function(event){
       if (event.target.status === 200){
 
-        var kittenCardTemplate = Handlebars.templates.KittenCard
+        console.log('==Successful Post');
+        var kittenCardTemplate = Handlebars.templates.kittenCard;
         var newCatHTML = kittenCardTemplate(cat);
+        console.log('==newCatHTML:', newCatHTML);
         var kittenContainer = document.getElementsByClassName('kitten-container')[0];
-        kittenContainer.insertAdjacentHTML('afterstart', newCatHTML);
+        kittenContainer.insertAdjacentHTML('beforeEnd', newCatHTML);
 
       } else {
         var message = event.target.response;
@@ -112,6 +114,7 @@ submitButton.addEventListener('click', function(event){
 
     request.setRequestHeader('Content-Type', 'application/json');
     request.send(requestBody);
+    closeDonateModal();
 
   } else {
     alert("fill in the form with valid information, you must.");

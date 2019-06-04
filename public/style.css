@@ -126,6 +126,11 @@ header {
   text-align: center;
 }
 
+.kitten-card-img img{
+  width: 200px;
+  height: 200px;
+}
+
 /* ======END OF KITTEN CONTAINER CSS====== */
 
 /* ======START OF KITTEN INFO NAVBAR===== */
