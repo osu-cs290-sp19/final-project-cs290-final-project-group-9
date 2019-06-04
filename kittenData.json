@@ -2,42 +2,39 @@
     "kittens": [
         {
             "name": "Luke",
-            "sex": "M",
-            "age": "3",
-            "image": "http://placekitten.com/200/200",
-            "description": "a cool cat with a lightsaber",
-            "chonk": "Y",
-            "cuddlyness": "2",
-            "playfulness": "4",
-            "otherPets": "Y",
-            "coatlength": "medium",
-            "quiz": "0"
+            "sex": "male",
+            "age": 3,
+            "img": "http://placekitten.com/200/200",
+            "desc": "a cool cat with a lightsaber",
+            "chonk": true,
+            "cuddle": 2,
+            "play": 4,
+            "pets": true,
+            "coat": "medium"
         },
         {
             "name": "Leia",
-            "sex": "F",
-            "age": "3",
-            "image": "http://placekitten.com/200/200",
-            "description": "a cool cat with an army",
-            "chonk": "Y",
-            "cuddlyness": "2",
-            "playfulness": "4",
-            "otherPets": "Y",
-            "coatlength": "long",
-            "quiz": "0"
+            "sex": "female",
+            "age": 3,
+            "img": "http://placekitten.com/200/200",
+            "desc": "a cool cat with an army and cinnamon bun ears",
+            "chonk": true,
+            "cuddle": 2,
+            "play": 4,
+            "pets": true,
+            "coat": "long"
         },
         {
             "name": "R2D2",
-            "sex": "M",
-            "age": "2",
-            "image": "http://placekitten.com/200/200",
-            "description": "a cool robo-cat",
-            "chonk": "Y",
-            "cuddlyness": "5",
-            "playfulness": "5",
-            "otherPets": "Y",
-            "coatlength": "short",
-            "quiz": "0"
+            "sex": "male",
+            "age": 2,
+            "img": "http://placekitten.com/200/200",
+            "desc": "a cool robo-cat, likes to scream",
+            "chonk": true,
+            "cuddle": 1,
+            "play": 5,
+            "pets": false,
+            "coat": "short"
         }
     ]
 }
