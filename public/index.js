@@ -99,7 +99,10 @@ submitButton.addEventListener('click', function(event){
     request.addEventListener('load', function(event){
       if (event.target.status === 200){
 
-        // SUCCESSFUL POST REQ
+        var kittenCardTemplate = Handlebars.templates.KittenCard
+        var newCatHTML = kittenCardTemplate(cat);
+        var kittenContainer = document.getElementsByClassName('kitten-container')[0];
+        kittenContainer.insertAdjacentHTML('afterstart', newCatHTML);
 
       } else {
         var message = event.target.response;
