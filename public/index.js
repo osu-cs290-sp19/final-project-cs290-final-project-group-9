@@ -122,3 +122,12 @@ submitButton.addEventListener('click', function(event){
 });
 
 // END OF DONATE MODAL
+
+// START OF KITTEN CLICK SIDEBAR POPUP
+
+var kittenCard = document.getElementsByClassName('kitten-card');
+var kittenInfo = document.getElementById('sidebar-dialogue');
+
+kittenCard[0].addEventListener('click', function(event) {
+  kittenInfo.classList.remove('hidden');
+});
