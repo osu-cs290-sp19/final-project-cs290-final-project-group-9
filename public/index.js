@@ -13,8 +13,25 @@ var cancelButton = document.getElementsByClassName('modal-cancel-button')[0];
 
 var submitButton = document.getElementsByClassName('modal-submit-button')[0];
 
+function clearCheckedValues(className){
+  var list = document.getElementsByClassName(className);
+  for (var i = 0; i < list.length; i++){
+    list[i].checked = false;
+  }
+}
+
 function clearDonateInputs(){
   // CLEARS ALL INPUT FIELDS OF CAT MODAL
+  document.getElementById('cat-name-input').value = "";
+  document.getElementById('cat-age-input').value = "";
+  clearCheckedValues('cat-sex-input');
+  document.getElementById('cat-chonk-input').checked = false;
+  clearCheckedValues('cat-fur-input');
+  document.getElementById('cat-play-input').value = "";
+  document.getElementById('cat-cuddle-input').value = "";
+  document.getElementById('cat-pet-input').checked = false;
+  document.getElementById('cat-desc-input').value = "";
+  document.getElementById('cat-img-input').value = "";
 }
 
 function closeDonateModal(event){
@@ -82,7 +99,12 @@ submitButton.addEventListener('click', function(event){
     request.addEventListener('load', function(event){
       if (event.target.status === 200){
 
-        // SUCCESSFUL POST REQ
+        console.log('==Successful Post');
+        var kittenCardTemplate = Handlebars.templates.kittenCard;
+        var newCatHTML = kittenCardTemplate(cat);
+        console.log('==newCatHTML:', newCatHTML);
+        var kittenContainer = document.getElementsByClassName('kitten-container')[0];
+        kittenContainer.insertAdjacentHTML('beforeEnd', newCatHTML);
 
       } else {
         var message = event.target.response;
@@ -92,6 +114,7 @@ submitButton.addEventListener('click', function(event){
 
     request.setRequestHeader('Content-Type', 'application/json');
     request.send(requestBody);
+    closeDonateModal();
 
   } else {
     alert("fill in the form with valid information, you must.");

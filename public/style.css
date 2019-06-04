@@ -126,6 +126,10 @@ header {
   text-align: center;
 }
 
+.kitten-card-img img{
+  width: 200px;
+  height: 200px;
+  
 .kitten-card:hover{
   background-color: #fce279;
   cursor: pointer;
@@ -216,7 +220,7 @@ header {
 .error-container{
   margin: 100px;
   padding: 100px;
-  
+
   text-align: center;
 }
 
@@ -227,7 +231,7 @@ header {
 .about-us{
   margin: 100px;
   padding: 100px;
-  
+
   text-align: center;
 }
 
@@ -268,3 +272,12 @@ header {
 }
 
 /* ======END OF KITTEN ADOPT MODAL====== */
+
+/* ======START OF ABOUT US====== */
+
+  .about-us{
+    width: 60%;
+    margin: auto;
+  }
+
+/* ======END OF ABOUT US====== */
