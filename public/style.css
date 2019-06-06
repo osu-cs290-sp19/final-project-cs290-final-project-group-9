@@ -303,13 +303,10 @@ header {
   background-color: #f7f6f2;
   border-radius: 15px;
 
-  width: auto;
-  height: auto;
-  max-width: 1200px;
+  width: 60%;
   min-width: 400px;
-  max-height: 2400px;
-  min-height: 800px;
-  margin: 100px auto;
+  height: auto;
+  margin: auto;
   padding: 10px;
 }
 
