@@ -127,6 +127,35 @@ submitButton.addEventListener('click', function(event){
 
 // START OF KITTEN CLICK SIDEBAR POPUP
 
+
+//var kittenCard = document.getElementsByClassName('kitten-card');
+//var kittenInfo = document.getElementById('sidebar-dialogue');
+
+//kittenCard[0].addEventListener('click', function(event) {
+  //kittenInfo.classList.remove('hidden');
+//});
+
+// END OF KITTEN CLICK SIDEBAR POPUP
+
+// START OF QUIZ MODAL
+
+var quizButton = document.getElementById('Quiz');
+
+var quizModalBG = document.getElementById('modal-backdrop-quiz');
+
+var quizModal = document.getElementById('quiz-modal');
+
+var cancelButtonQuiz = document.getElementsByClassName('modal-cancel-button-quiz')[0];
+
+var submitButtonQuiz = document.getElementsByClassName('modal-submit-button-quiz')[0];
+
+quizButton.addEventListener('click', function (event) {
+  quizModal.classList.toggle('hidden');
+  quizModalBG.classList.toggle('hidden');
+});
+
+// END OF QUIZ MODAL
+
 function kittenClicked(event){
   var selectedCat = event.currentTarget;
 

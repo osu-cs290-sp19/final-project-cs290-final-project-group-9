@@ -237,6 +237,9 @@ header {
 }
 
 /* ======END OF ABOUT US PAGE===== */
+
+/* ======START OF ADD A CAT MODAL====== */
+
 #modal-backdrop{
   position: fixed;
   top: 0;
@@ -271,6 +274,50 @@ header {
 .modal-header{
   text-align: center;
 }
+
+/* ======END OF ADD A CAT MODAL====== */
+
+/* ======START OF CAT QUIZ MODAL====== */
+
+#modal-backdrop-quiz{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+#quiz-modal{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1010;
+  overflow: scroll;
+}
+
+.modal-dialog-quiz{
+  background-color: #f7f6f2;
+  border-radius: 15px;
+
+  width: auto;
+  height: auto;
+  max-width: 1200px;
+  min-width: 400px;
+  max-height: 2400px;
+  min-height: 800px;
+  margin: 100px auto;
+  padding: 10px;
+}
+
+.modal-header{
+  text-align: center;
+}
+
+/* ======END OF CAT QUIZ MODAL====== */
 
 /* ======END OF KITTEN ADOPT MODAL====== */
 

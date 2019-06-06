@@ -12,7 +12,8 @@
     "build3": "handlebars views/partials/kittenCard.handlebars -f public/kittenCardTemplate.js",
     "build4": "handlebars views/partials/kittenContainer.handlebars -f public/kittenContainerTemplate.js",
     "build5": "handlebars views/partials/searchSidebar.handlebars -f public/searchSidebarTemplate.js",
-    "prestart": "npm run build1 && npm run build2 && npm run build3 && npm run build4 && npm run build5"
+    "build6": "handlebars views/partials/quizModal.handlebars -f public/quizModalTemplate.js",
+    "prestart": "npm run build1 && npm run build2 && npm run build3 && npm run build4 && npm run build5 && npm run build6"
   },
   "repository": {
     "type": "git",
