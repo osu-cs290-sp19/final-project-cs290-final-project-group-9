@@ -126,10 +126,16 @@ header {
   text-align: center;
 }
 
+.kitten-card-img img{
+  width: 200px;
+  height: 200px;
+}
+
 .kitten-card:hover{
   background-color: #fce279;
   cursor: pointer;
-  font-size: 120%;
+  box-shadow: 15px 15px 15px #656e74;
+
 }
 
 /* ======END OF KITTEN CONTAINER CSS====== */
@@ -176,7 +182,6 @@ header {
 .adopt-button:hover{
   background-color: rgb(0, 140, 255);
   cursor: pointer;
-  font-size: 120%;
 }
 
 /* ======END OF KITTEN INFO NAVBAR===== */
@@ -216,7 +221,7 @@ header {
 .error-container{
   margin: 100px;
   padding: 100px;
-  
+
   text-align: center;
 }
 
@@ -227,7 +232,7 @@ header {
 .about-us{
   margin: 100px;
   padding: 100px;
-  
+
   text-align: center;
 }
 
@@ -315,3 +320,12 @@ header {
 /* ======END OF CAT QUIZ MODAL====== */
 
 /* ======END OF KITTEN ADOPT MODAL====== */
+
+/* ======START OF ABOUT US====== */
+
+  .about-us{
+    width: 60%;
+    margin: auto;
+  }
+
+/* ======END OF ABOUT US====== */

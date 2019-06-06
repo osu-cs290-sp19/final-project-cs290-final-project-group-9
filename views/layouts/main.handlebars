@@ -5,13 +5,15 @@
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="style.css" media="screen">
 		<link href="https://fonts.googleapis.com/css?family=Audiowide|Scada&display=swap" rel="stylesheet">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.runtime.js" defer></script>
+		<script src="./kittenCardTemplate.js" charset="utf-8" defer></script>
 		<script src="index.js" charset="utf-8" defer></script>
 
 	</head>
 	<body>
 		<header>
 
-			<a class="site-title title" href="#"><h1>Padawan Pals</h1></a>
+			<a class="site-title title" href="/"><h1>Padawan Pals</h1></a>
 			<h2 class="site-subtitle title">May the furs be with you</h2>
 
 			<nav class="navbar">
@@ -19,7 +21,7 @@
 
 					<li class="navitem navlink" id="donate"><a href="#">Donate a cat</a></li>
 					<li class="navitem navlink" id="Quiz"><a href="#">Adoption Quiz</a></li>
-					<li class="navitem navlink"><a href="#">About Us</a></li>
+					<li class="navitem navlink"><a href="/aboutus">About Us</a></li>
 					<li class="navitem search">
 						<input type="text" id="search-input" placeholder="Search for cats..."/>
 						<button type="button" id="search-button"><i class="search-icon"></i></button>
