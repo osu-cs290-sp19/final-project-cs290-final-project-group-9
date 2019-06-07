@@ -146,27 +146,42 @@ quizButton.addEventListener('click', function (event) {
 
 // START OF KITTEN SIDEBAR
 
+var selectedCat = null;
+
 function kittenClicked(event){
   var selectedCat = event.currentTarget;
 
-  var catStats = {
-    name: selectedCat.getElementsByClassName('kitten-card-name-p')[0].textContent.trim(),
-    sex: selectedCat.getElementsByClassName('kitten-sex')[0].textContent.trim(),
-    age: selectedCat.getElementsByClassName('kitten-age')[0].textContent.trim(),
-    desc: selectedCat.getElementsByClassName('kitten-desc')[0].textContent.trim()
+  var catId = {
+    id: selectedCat.id
   }
+  console.log('==ID:', catId);
 
-  var sidebar = {
-    name: document.getElementById('sidebar-name'),
-    sex: document.getElementById('sidebar-sex'),
-    age: document.getElementById('sidebar-age'),
-    desc: document.getElementById('sidebar-desc')
-  }
+  var request = new XMLHttpRequest();
+  var url = '/getCat';
+  request.open('POST', url);
+  var requestBody = JSON.stringify(catId);
+  console.log(requestBody);
 
-  sidebar.name.textContent = "Name: " + catStats.name;
-  sidebar.sex.textContent = "Sex: " + catStats.sex;
-  sidebar.age.textContent = "Age: " + catStats.age;
-  sidebar.desc.textContent = "Description: " + catStats.desc;
+  request.addEventListener('load', function(event){
+    console.log(event.target.response);
+    selectedCat = JSON.parse(event.target.response);
+
+    var sidebar = {
+      name: document.getElementById('sidebar-name'),
+      sex: document.getElementById('sidebar-sex'),
+      age: document.getElementById('sidebar-age'),
+      desc: document.getElementById('sidebar-desc')
+    }
+
+    sidebar.name.textContent = "Name: " + selectedCat.name;
+    sidebar.sex.textContent = "Sex: " + selectedCat.sex;
+    sidebar.age.textContent = "Age: " + selectedCat.age;
+    sidebar.desc.textContent = "Description: " + selectedCat.desc;
+  });
+
+  request.setRequestHeader('Content-Type', 'application/json')
+  request.send(requestBody);
+  console.log('==req sent');
 }
 
 var kittenCards = document.getElementsByClassName('kitten-card');
