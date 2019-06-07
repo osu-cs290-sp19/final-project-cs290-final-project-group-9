@@ -125,18 +125,6 @@ submitButton.addEventListener('click', function(event){
 
 // END OF DONATE MODAL
 
-// START OF KITTEN CLICK SIDEBAR POPUP
-
-
-//var kittenCard = document.getElementsByClassName('kitten-card');
-//var kittenInfo = document.getElementById('sidebar-dialogue');
-
-//kittenCard[0].addEventListener('click', function(event) {
-  //kittenInfo.classList.remove('hidden');
-//});
-
-// END OF KITTEN CLICK SIDEBAR POPUP
-
 // START OF QUIZ MODAL
 
 var quizButton = document.getElementById('Quiz');
@@ -155,6 +143,8 @@ quizButton.addEventListener('click', function (event) {
 });
 
 // END OF QUIZ MODAL
+
+// START OF KITTEN SIDEBAR
 
 function kittenClicked(event){
   var selectedCat = event.currentTarget;
@@ -183,3 +173,4 @@ var kittenCards = document.getElementsByClassName('kitten-card');
 for (var i = 0; i < kittenCards.length; i++){
   kittenCards[i].addEventListener('click', kittenClicked);
 }
+ //END OF KITTEN SIDEBAR
