@@ -15,7 +15,7 @@ var mongoUser = process.env.MONGO_USER || "cs290_hirschet";
 var mongoPassword = process.env.MONGO_PASSWORD || "cs290_hirschet";
 var mongoDBName = process.env.MONGO_DB_NAME || "cs290_hirschet";
 
-var mongoUrl = 'mongodb://${mongoUser}:${mongoPassword}@${mongoHost}:${mongoPort}/${mongoDBName}';
+var mongoUrl = `mongodb://${mongoUser}:${mongoPassword}@${mongoHost}:${mongoPort}/${mongoDBName}`;
 var db = null;
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
