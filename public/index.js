@@ -244,3 +244,5 @@ for (var i = 0; i < kittenCards.length; i++){
   kittenCards[i].addEventListener('click', kittenClicked);
 }
  //END OF KITTEN SIDEBAR
+
+//Start filter search

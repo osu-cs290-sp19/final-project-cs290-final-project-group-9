@@ -206,6 +206,11 @@ header {
   text-decoration: underline;
 }
 
+#filter-button{
+  margin-left: 75px;
+  margin-top: 30px;
+}
+
 /* ======END OF KITTEN FILTER SEARCH BAR===== */
 
 /* ======START OF KITTEN ADOPT MODAL====== */
