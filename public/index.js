@@ -119,7 +119,7 @@ submitButton.addEventListener('click', function(event){
     closeDonateModal();
 
   } else {
-    alert("fill in the form with valid information, you must.");
+    alert("Fill in the form with valid information, you must.");
   }
 });
 
@@ -137,11 +137,65 @@ var cancelButtonQuiz = document.getElementsByClassName('modal-cancel-button-quiz
 
 var submitButtonQuiz = document.getElementsByClassName('modal-submit-button-quiz')[0];
 
+//var perfectCat = NULL;
+
+//var allCats = NULL;
+
+//MAKE SURE ALL PARTS OF THE QUIZ ARE FILLED OUT WITH VALID INFO
+function validateQuiz(perfectCat){
+  if(perfectCat.sex != 'male' && perfectCat.sex != 'female') return false;
+  if(perfectCat.age != 'youngest' && perfectCat.age != 'young' && perfectCat.age != 'old' && perfectCat.age != 'oldest') return false;
+  if(perfectCat.chonk != 'chonk' && perfectCat.chonk != "no-chonk") return false;
+  if(perfectCat.cuddle != 'one-cuddly' && perfectCat.cuddle != 'two-cuddly' && perfectCat.cuddle != 'three-cuddly' && perfectCat.cuddle != 'four-cuddly' && perfectCat.cuddle != 'five-cuddly') return false;
+  if(perfectCat.play != 'one-playful' && perfectCat.play != 'two-playful' && perfectCat.play != 'three-playful' && perfectCat.play != 'four-playful' && perfectCat.play != 'five-playful') return false;
+  if(perfectCat.pets != 'other-pets' && perfectCat.pets != 'no-other-pets') return false;
+  if(perfectCat.coat != 'short-fur' && perfectCat.coat != 'medium-fur' && perfectCat.coat != 'long-fur') return false;
+  return true;
+}
+
+//MATCH THE THEORETICAL PERFECT CAT TO THE CLOSEST CAT AVAILABLE AND RETURN IT
+function findCat(perfectCat) {
+  var bestCat = NULL;
+
+  return bestCat;
+}
+
 quizButton.addEventListener('click', function (event) {
   quizModal.classList.toggle('hidden');
   quizModalBG.classList.toggle('hidden');
 });
 
+
+cancelButtonQuiz.addEventListener('click', function (event) {
+  quizModal.classList.toggle('hidden');
+  quizModalBG.classList.toggle('hidden');
+});
+
+submitButtonQuiz.addEventListener('click', function (event) {
+
+//CREATE THE "PERFECT CAT" THE USER IS LOOKING FOR
+  var perfectCat = {
+    name: "perfect",
+    sex: getCheckedValue('cat-sex-input-quiz'),
+    age: getCheckedValue('cat-age-input-quiz'),
+    chonk: getCheckedValue('cat-chonk-input-quiz'),
+    cuddle: getCheckedValue('cat-cuddly-input-quiz'),
+    play: getCheckedValue('cat-playful-input-quiz'),
+    pets: getCheckedValue('cat-other-pets-input-quiz'),
+    coat: getCheckedValue('cat-fur-input-quiz'),
+    desc: "The user's perfect cat",
+    img: "perfect.jpg"
+  };
+
+  if (validateQuiz(perfectCat)) {
+    //perfectCat = findCat(perfectCat);
+  } else {
+    alert("Finish the quiz, you must.");
+  }
+
+  //SEND USER TO PAGE WITH ONLY BEST CAT KITTEN CARD
+
+});
 // END OF QUIZ MODAL
 
 // START OF KITTEN SIDEBAR
