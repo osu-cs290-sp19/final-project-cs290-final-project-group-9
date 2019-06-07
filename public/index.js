@@ -100,14 +100,15 @@ submitButton.addEventListener('click', function(event){
       if (event.target.status === 200){
 
         console.log('==Successful Post');
+        var newCat = JSON.parse(event.target.response);
         var kittenCardTemplate = Handlebars.templates.kittenCard;
-        var newCatHTML = kittenCardTemplate(cat);
+        var newCatHTML = kittenCardTemplate(newCat);
         console.log('==newCatHTML:', newCatHTML);
         var kittenContainer = document.getElementsByClassName('kitten-container')[0];
         kittenContainer.insertAdjacentHTML('beforeEnd', newCatHTML);
         var lastCat = document.getElementsByClassName('kitten-card');
         lastCat[lastCat.length - 1].addEventListener('click', kittenClicked);
-
+        console.log('==newCat Inserted');
       } else {
         var message = event.target.response;
         alert("Error submitting cat: " + message);

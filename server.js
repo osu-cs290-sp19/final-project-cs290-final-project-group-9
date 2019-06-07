@@ -75,13 +75,19 @@ app.post('/getCat', function(req, res, next) {
 //receive a donated cat
 app.post('/addCat', function(req, res, next) {
     if (req.body) {
-
       var collection = db.collection('cats');
       collection.insertOne(req.body, function(err, result){
         if (err) res.status(500).send("Ewoks have sabotaged the database!");
         else {
-          console.log(result);
-          res.status(200).send("Kitten successfully added.");
+          console.log('==cat has been added to DB');
+          console.log('==id to search:', result.insertedId);
+          collection.find(ObjectId(result.insertedId)).toArray(function(err, cats){
+            if (err) res.status(500).send();
+            else if (cats.length){
+              console.log('==sending back the new cat');
+              res.status(200).send(cats[0]);
+            } else res.status(400).send("yikes");
+          });
         }
       });
     } else {
