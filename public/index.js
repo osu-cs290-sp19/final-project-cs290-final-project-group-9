@@ -100,14 +100,15 @@ submitButton.addEventListener('click', function(event){
       if (event.target.status === 200){
 
         console.log('==Successful Post');
+        var newCat = JSON.parse(event.target.response);
         var kittenCardTemplate = Handlebars.templates.kittenCard;
-        var newCatHTML = kittenCardTemplate(cat);
+        var newCatHTML = kittenCardTemplate(newCat);
         console.log('==newCatHTML:', newCatHTML);
         var kittenContainer = document.getElementsByClassName('kitten-container')[0];
         kittenContainer.insertAdjacentHTML('beforeEnd', newCatHTML);
         var lastCat = document.getElementsByClassName('kitten-card');
         lastCat[lastCat.length - 1].addEventListener('click', kittenClicked);
-
+        console.log('==newCat Inserted');
       } else {
         var message = event.target.response;
         alert("Error submitting cat: " + message);
@@ -119,7 +120,7 @@ submitButton.addEventListener('click', function(event){
     closeDonateModal();
 
   } else {
-    alert("fill in the form with valid information, you must.");
+    alert("Fill in the form with valid information, you must.");
   }
 });
 
@@ -137,36 +138,105 @@ var cancelButtonQuiz = document.getElementsByClassName('modal-cancel-button-quiz
 
 var submitButtonQuiz = document.getElementsByClassName('modal-submit-button-quiz')[0];
 
+//var perfectCat = NULL;
+
+//var allCats = NULL;
+
+//MAKE SURE ALL PARTS OF THE QUIZ ARE FILLED OUT WITH VALID INFO
+function validateQuiz(perfectCat){
+  if(perfectCat.sex != 'male' && perfectCat.sex != 'female') return false;
+  if(perfectCat.age != 'youngest' && perfectCat.age != 'young' && perfectCat.age != 'old' && perfectCat.age != 'oldest') return false;
+  if(perfectCat.chonk != 'chonk' && perfectCat.chonk != "no-chonk") return false;
+  if(perfectCat.cuddle != 'one-cuddly' && perfectCat.cuddle != 'two-cuddly' && perfectCat.cuddle != 'three-cuddly' && perfectCat.cuddle != 'four-cuddly' && perfectCat.cuddle != 'five-cuddly') return false;
+  if(perfectCat.play != 'one-playful' && perfectCat.play != 'two-playful' && perfectCat.play != 'three-playful' && perfectCat.play != 'four-playful' && perfectCat.play != 'five-playful') return false;
+  if(perfectCat.pets != 'other-pets' && perfectCat.pets != 'no-other-pets') return false;
+  if(perfectCat.coat != 'short-fur' && perfectCat.coat != 'medium-fur' && perfectCat.coat != 'long-fur') return false;
+  return true;
+}
+
+//MATCH THE THEORETICAL PERFECT CAT TO THE CLOSEST CAT AVAILABLE AND RETURN IT
+function findCat(perfectCat) {
+  var bestCat = NULL;
+
+  return bestCat;
+}
+
 quizButton.addEventListener('click', function (event) {
   quizModal.classList.toggle('hidden');
   quizModalBG.classList.toggle('hidden');
 });
 
+
+cancelButtonQuiz.addEventListener('click', function (event) {
+  quizModal.classList.toggle('hidden');
+  quizModalBG.classList.toggle('hidden');
+});
+
+submitButtonQuiz.addEventListener('click', function (event) {
+
+//CREATE THE "PERFECT CAT" THE USER IS LOOKING FOR
+  var perfectCat = {
+    name: "perfect",
+    sex: getCheckedValue('cat-sex-input-quiz'),
+    age: getCheckedValue('cat-age-input-quiz'),
+    chonk: getCheckedValue('cat-chonk-input-quiz'),
+    cuddle: getCheckedValue('cat-cuddly-input-quiz'),
+    play: getCheckedValue('cat-playful-input-quiz'),
+    pets: getCheckedValue('cat-other-pets-input-quiz'),
+    coat: getCheckedValue('cat-fur-input-quiz'),
+    desc: "The user's perfect cat",
+    img: "perfect.jpg"
+  };
+
+  if (validateQuiz(perfectCat)) {
+    //perfectCat = findCat(perfectCat);
+  } else {
+    alert("Finish the quiz, you must.");
+  }
+
+  //SEND USER TO PAGE WITH ONLY BEST CAT KITTEN CARD
+
+});
 // END OF QUIZ MODAL
 
 // START OF KITTEN SIDEBAR
 
+var selectedCat = null;
+
 function kittenClicked(event){
   var selectedCat = event.currentTarget;
 
-  var catStats = {
-    name: selectedCat.getElementsByClassName('kitten-card-name-p')[0].textContent.trim(),
-    sex: selectedCat.getElementsByClassName('kitten-sex')[0].textContent.trim(),
-    age: selectedCat.getElementsByClassName('kitten-age')[0].textContent.trim(),
-    desc: selectedCat.getElementsByClassName('kitten-desc')[0].textContent.trim()
+  var catId = {
+    id: selectedCat.id
   }
+  console.log('==ID:', catId);
 
-  var sidebar = {
-    name: document.getElementById('sidebar-name'),
-    sex: document.getElementById('sidebar-sex'),
-    age: document.getElementById('sidebar-age'),
-    desc: document.getElementById('sidebar-desc')
-  }
+  var request = new XMLHttpRequest();
+  var url = '/getCat';
+  request.open('POST', url);
+  var requestBody = JSON.stringify(catId);
+  console.log(requestBody);
 
-  sidebar.name.textContent = "Name: " + catStats.name;
-  sidebar.sex.textContent = "Sex: " + catStats.sex;
-  sidebar.age.textContent = "Age: " + catStats.age;
-  sidebar.desc.textContent = "Description: " + catStats.desc;
+  request.addEventListener('load', function(event){
+    console.log(event.target.response);
+    selectedCat = JSON.parse(event.target.response);
+
+    var sidebar = {
+      name: document.getElementById('sidebar-name'),
+      sex: document.getElementById('sidebar-sex'),
+      age: document.getElementById('sidebar-age'),
+      desc: document.getElementById('sidebar-desc')
+    }
+
+    sidebar.name.textContent = "Name: " + selectedCat.name;
+    sidebar.sex.textContent = "Sex: " + selectedCat.sex;
+    sidebar.age.textContent = "Age: " + selectedCat.age;
+    sidebar.desc.textContent = "Description: " + selectedCat.desc;
+  });
+
+  request.setRequestHeader('Content-Type', 'application/json')
+  request.send(requestBody);
+  console.log('==req sent');
 }
 
 var kittenCards = document.getElementsByClassName('kitten-card');
