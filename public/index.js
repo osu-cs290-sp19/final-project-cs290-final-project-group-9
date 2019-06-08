@@ -82,7 +82,7 @@ submitButton.addEventListener('click', function(event){
     pets: document.getElementById('cat-pet-input').checked,
     desc: document.getElementById('cat-desc-input').value,
     img: document.getElementById('cat-img-input').value
-  }
+  } 
 
   // VALIDATE ALL THE FUCKING SHIT
 
@@ -204,7 +204,7 @@ submitButtonQuiz.addEventListener('click', function (event) {
 var selectedCat = null;
 
 function kittenClicked(event){
-  var selectedCat = event.currentTarget;
+  selectedCat = event.currentTarget;
 
   var catId = {
     id: selectedCat.id
@@ -244,3 +244,40 @@ for (var i = 0; i < kittenCards.length; i++){
   kittenCards[i].addEventListener('click', kittenClicked);
 }
  //END OF KITTEN SIDEBAR
+
+ //START OF ADOPT ME
+var adoptButton = document.getElementsByClassName('adopt-button')[0];
+adoptButton.addEventListener('click', function(event){
+  console.log("Selected Cat: ", selectedCat);
+  if (selectedCat){
+    //adopt stuff!not null
+    var request = new XMLHttpRequest();
+    var url = '/adoptCat';
+    request.open('POST', url);
+
+    var requestBody = JSON.stringify({
+      id: selectedCat._id
+    });
+    console.log("id:", requestBody);
+
+    request.addEventListener('load', function(event){
+      if (event.target.status === 200){
+        //success!
+        alert("YOU ADOPTED A CAT IDIOT!");
+      }
+      else {
+        var message = event.target.response;
+        alert('error in adopting cat!' + message);
+      }
+    });
+    request.setRequestHeader('content-type', 'application/json');
+    request.send(requestBody);
+  }
+  
+  else {
+    console.log('no work');
+    alert("select a cat, u must!!");
+  }
+});
+
+//END OF ADOPT ME

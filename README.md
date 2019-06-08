@@ -37,3 +37,4 @@ after you have cloned the repo, cd into it and follow these steps:
 use git branch -a to list all available branches
 use git pull origin BRANCH_NAME to get the most current version of a remote branch (either master or some other branch)
    you may need to update your remote branch after pulling changes from remote master
+ :)
