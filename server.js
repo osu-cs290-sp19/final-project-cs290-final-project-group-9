@@ -68,9 +68,32 @@ app.post('/getCat', function(req, res, next) {
       }
     })
   } else {
-    res.status(400).sent("invalid request");
+    res.status(400).send("invalid request");
   }
 });
+
+//adopt cat response
+app.post('/adoptCat', function(req, res, next) {
+  console.log("body:", req.body);
+  if (req.body) {
+    console.log("body:", req.body);
+    console.log("body.id:", req.body.id);
+    var collection = db.collection('cats');
+    collection.deleteOne({_id: ObjectId(req.body.id)}, function(err, result){
+      if (err) {
+        res.status(500).send("screwed up, database has done.");
+      }
+      else {
+        console.log('successfully removed catto from database!');
+        res.status(200).send();
+      }
+    });
+  }
+  else {
+    res.status(400).send("u done mal");
+  }
+});
+
 
 //receive a donated cat
 app.post('/addCat', function(req, res, next) {
