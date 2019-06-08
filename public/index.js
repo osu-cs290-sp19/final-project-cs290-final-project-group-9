@@ -263,6 +263,8 @@ adoptButton.addEventListener('click', function(event){
     request.addEventListener('load', function(event){
       if (event.target.status === 200){
         //success!
+        var adoptedCatElement = document.getElementById(selectedCat._id);
+        adoptedCatElement.parentNode.removeChild(adoptedCatElement);
         alert("YOU ADOPTED A CAT IDIOT!");
       }
       else {
