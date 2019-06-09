@@ -222,11 +222,8 @@ app.post('/perfectCat', function (req, res, next) {
         });
       } else {
         console.log("Here's the final array of cats ", cats);
-        var finalCat = {
-          kittens: cats
-        };
-        res.status(200).render('mainPage', finalCat);
         collection.updateMany({}, {$set: {quiz: 0}});
+        res.status(200).send(cats[0]);
       }
     });
   } else {
