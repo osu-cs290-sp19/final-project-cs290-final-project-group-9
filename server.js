@@ -41,7 +41,7 @@ app.get('/', function(req, res, next) {
         var kittens = {
           kittens: kitties
         }
-        console.log('==cats:', kittens);
+        //console.log('==cats:', kittens);
         res.status(200).render('mainPage', kittens);
       }
       // } else {
@@ -116,6 +116,122 @@ app.post('/addCat', function(req, res, next) {
     } else {
       res.status(400).send("Invalid Request");
     }
+});
+
+//find the perfect cat from the quiz
+app.post('/perfectCat', function (req, res, next) {
+  console.log("== Recieved a request for a perfect quiz cat");
+  if (req.body) {
+    console.log("Boddyy: ", req.body);
+    var collection = db.collection('cats');
+    collection.updateMany(
+      {sex: req.body.sex}, 
+      {$inc: {quiz: 1}},
+      function (err, result) {
+        if (err) {
+          res.status(500).send({
+            error: "Oh, no! The Sith have attacked the Database! Call the Jedi, quick!"
+          });
+        } else {
+          console.log("We all good for sex");
+        }
+      }
+    );
+    collection.updateMany(
+      {age: req.body.age}, 
+      {$inc: {quiz: 1}},
+      function (err, result) {
+        if (err) {
+          res.status(500).send({
+            error: "Oh, no! The Sith have attacked the Database! Call the Jedi, quick!"
+          });
+        } else {
+          console.log("We all good for age");
+        }
+      }
+    );
+    collection.updateMany(
+      {chonk: req.body.chonk}, 
+      {$inc: {quiz: 1}},
+      function (err, result) {
+        if (err) {
+          res.status(500).send({
+            error: "Oh, no! The Sith have attacked the Database! Call the Jedi, quick!"
+          });
+        } else {
+          console.log("We all good for chonk");
+        }
+      }
+    );
+    collection.updateMany(
+      {cuddle: req.body.cuddle}, 
+      {$inc: {quiz: 1}},
+      function (err, result) {
+        if (err) {
+          res.status(500).send({
+            error: "Oh, no! The Sith have attacked the Database! Call the Jedi, quick!"
+          });
+        } else {
+          console.log("We all good for cuddlyness");
+        }
+      }
+    );
+    collection.updateMany(
+      {play: req.body.play}, 
+      {$inc: {quiz: 1}},
+      function (err, result) {
+        if (err) {
+          res.status(500).send({
+            error: "Oh, no! The Sith have attacked the Database! Call the Jedi, quick!"
+          });
+        } else {
+          console.log("We all good for playfulness");
+        }
+      }
+    );
+    collection.updateMany(
+      {pets: req.body.pets}, 
+      {$inc: {quiz: 1}},
+      function (err, result) {
+        if (err) {
+          res.status(500).send({
+            error: "Oh, no! The Sith have attacked the Database! Call the Jedi, quick!"
+          });
+        } else {
+          console.log("We all good for other pets");
+        }
+      }
+    );
+    collection.updateMany(
+      {coat: req.body.coat}, 
+      {$inc: {quiz: 1}},
+      function (err, result) {
+        if (err) {
+          res.status(500).send({
+            error: "Oh, no! The Sith have attacked the Database! Call the Jedi, quick!"
+          });
+        } else {
+          console.log("We all good for coat length");
+        }
+      }
+    );
+    collection.find().sort({quiz: -1}).limit(1).toArray(function (err, cats) {
+      if (err) {
+        res.status(500).send({
+          error: "Oh, no! The Sith have attacked the Database! Call the Jedi, quick!"
+        });
+      } else {
+        console.log("Here's the final array of cats ", cats);
+        var finalCat = {
+          kittens: cats
+        };
+        res.status(200).render('mainPage', finalCat);
+        collection.updateMany({}, {$set: {quiz: 0}});
+      }
+    });
+  } else {
+    res.status(400).send("You messed up somehow, dunno how though with my amazing error handling...");
+  }
 });
 
 //style sheet
