@@ -180,7 +180,6 @@ submitButtonQuiz.addEventListener('click', function (event) {
     desc: "The user's perfect cat",
     img: "perfect.jpg"
   };
-
   //REQUEST THE PERFECT CAT
   if (validateQuiz(perfectCat)) {
     var request = new XMLHttpRequest();
@@ -191,6 +190,8 @@ submitButtonQuiz.addEventListener('click', function (event) {
     request.addEventListener('load', function (event) {
       if (event.target.status === 200) {
         console.log("Success, so clearly in view! Or... is it merely a trick of the light?");
+        var bestCat = JSON.parse(event.target.response);
+        alert('Your best-match cat is: ' + bestCat.name + '! Why not click on their picture?');
       } else {
         var message = event.target.response;
         alert('Error with finding your cat: ' + message);
