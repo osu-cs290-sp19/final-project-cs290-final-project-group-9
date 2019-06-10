@@ -82,7 +82,7 @@ submitButton.addEventListener('click', function(event){
     pets: document.getElementById('cat-pet-input').checked,
     desc: document.getElementById('cat-desc-input').value,
     img: document.getElementById('cat-img-input').value
-  }
+  } 
 
   // VALIDATE ALL THE FUCKING SHIT
 
@@ -145,20 +145,13 @@ var submitButtonQuiz = document.getElementsByClassName('modal-submit-button-quiz
 //MAKE SURE ALL PARTS OF THE QUIZ ARE FILLED OUT WITH VALID INFO
 function validateQuiz(perfectCat){
   if(perfectCat.sex != 'male' && perfectCat.sex != 'female') return false;
-  if(perfectCat.age != 'youngest' && perfectCat.age != 'young' && perfectCat.age != 'old' && perfectCat.age != 'oldest') return false;
-  if(perfectCat.chonk != 'chonk' && perfectCat.chonk != "no-chonk") return false;
-  if(perfectCat.cuddle != 'one-cuddly' && perfectCat.cuddle != 'two-cuddly' && perfectCat.cuddle != 'three-cuddly' && perfectCat.cuddle != 'four-cuddly' && perfectCat.cuddle != 'five-cuddly') return false;
-  if(perfectCat.play != 'one-playful' && perfectCat.play != 'two-playful' && perfectCat.play != 'three-playful' && perfectCat.play != 'four-playful' && perfectCat.play != 'five-playful') return false;
-  if(perfectCat.pets != 'other-pets' && perfectCat.pets != 'no-other-pets') return false;
-  if(perfectCat.coat != 'short-fur' && perfectCat.coat != 'medium-fur' && perfectCat.coat != 'long-fur') return false;
+  if(perfectCat.age != '1' && perfectCat.age != '4' && perfectCat.age != '7' && perfectCat.age != '10') return false;
+  if(perfectCat.chonk != 'true' && perfectCat.chonk != "false") return false;
+  if(perfectCat.cuddle != '1' && perfectCat.cuddle != '2' && perfectCat.cuddle != '3' && perfectCat.cuddle != '4' && perfectCat.cuddle != '5') return false;
+  if(perfectCat.play != '1' && perfectCat.play != '2' && perfectCat.play != '3' && perfectCat.play != '4' && perfectCat.play != '5') return false;
+  if(perfectCat.pets != 'true' && perfectCat.pets != 'false') return false;
+  if(perfectCat.coat != 'short' && perfectCat.coat != 'medium' && perfectCat.coat != 'long') return false;
   return true;
-}
-
-//MATCH THE THEORETICAL PERFECT CAT TO THE CLOSEST CAT AVAILABLE AND RETURN IT
-function findCat(perfectCat) {
-  var bestCat = NULL;
-
-  return bestCat;
 }
 
 quizButton.addEventListener('click', function (event) {
@@ -187,15 +180,30 @@ submitButtonQuiz.addEventListener('click', function (event) {
     desc: "The user's perfect cat",
     img: "perfect.jpg"
   };
-
+  //REQUEST THE PERFECT CAT
   if (validateQuiz(perfectCat)) {
-    //perfectCat = findCat(perfectCat);
+    var request = new XMLHttpRequest();
+    var url = '/perfectCat';
+    request.open('POST', url);
+    var requestBody = JSON.stringify(perfectCat);
+    console.log("Request body:", requestBody);
+    request.addEventListener('load', function (event) {
+      if (event.target.status === 200) {
+        console.log("Success, so clearly in view! Or... is it merely a trick of the light?");
+        var bestCat = JSON.parse(event.target.response);
+        alert('Your best-match cat is: ' + bestCat.name + '! Why not click on their picture?');
+      } else {
+        var message = event.target.response;
+        alert('Error with finding your cat: ' + message);
+      }
+    });
+    request.setRequestHeader('content-type', 'application/json');
+    request.send(requestBody);
+    quizModal.classList.toggle('hidden');
+    quizModalBG.classList.toggle('hidden');
   } else {
     alert("Finish the quiz, you must.");
   }
-
-  //SEND USER TO PAGE WITH ONLY BEST CAT KITTEN CARD
-
 });
 // END OF QUIZ MODAL
 
@@ -204,7 +212,7 @@ submitButtonQuiz.addEventListener('click', function (event) {
 var selectedCat = null;
 
 function kittenClicked(event){
-  var selectedCat = event.currentTarget;
+  selectedCat = event.currentTarget;
 
   var catId = {
     id: selectedCat.id
@@ -234,7 +242,7 @@ function kittenClicked(event){
     sidebar.desc.textContent = "Description: " + selectedCat.desc;
   });
 
-  request.setRequestHeader('Content-Type', 'application/json')
+  request.setRequestHeader('Content-Type', 'application/json');
   request.send(requestBody);
   console.log('==req sent');
 }
@@ -246,3 +254,42 @@ for (var i = 0; i < kittenCards.length; i++){
  //END OF KITTEN SIDEBAR
 
 //Start filter search
+
+ //START OF ADOPT ME
+var adoptButton = document.getElementsByClassName('adopt-button')[0];
+adoptButton.addEventListener('click', function(event){
+  console.log("Selected Cat: ", selectedCat);
+  if (selectedCat){
+    //adopt stuff!not null
+    var request = new XMLHttpRequest();
+    var url = '/adoptCat';
+    request.open('POST', url);
+
+    var requestBody = JSON.stringify({
+      id: selectedCat._id
+    });
+    console.log("id:", requestBody);
+
+    request.addEventListener('load', function(event){
+      if (event.target.status === 200){
+        //success!
+        var adoptedCatElement = document.getElementById(selectedCat._id);
+        adoptedCatElement.parentNode.removeChild(adoptedCatElement);
+        alert("YOU ADOPTED A CAT IDIOT!");
+      }
+      else {
+        var message = event.target.response;
+        alert('error in adopting cat!' + message);
+      }
+    });
+    request.setRequestHeader('content-type', 'application/json');
+    request.send(requestBody);
+  }
+  
+  else {
+    console.log('no work');
+    alert("select a cat, u must!!");
+  }
+});
+
+//END OF ADOPT ME
