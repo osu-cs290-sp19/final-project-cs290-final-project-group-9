@@ -138,10 +138,6 @@ var cancelButtonQuiz = document.getElementsByClassName('modal-cancel-button-quiz
 
 var submitButtonQuiz = document.getElementsByClassName('modal-submit-button-quiz')[0];
 
-//var perfectCat = NULL;
-
-//var allCats = NULL;
-
 //MAKE SURE ALL PARTS OF THE QUIZ ARE FILLED OUT WITH VALID INFO
 function validateQuiz(perfectCat){
   if(perfectCat.sex != 'male' && perfectCat.sex != 'female') return false;
@@ -154,6 +150,23 @@ function validateQuiz(perfectCat){
   return true;
 }
 
+function clearCheckedQuizValues(className){
+  var list = document.getElementsByClassName(className);
+  for (var i = 0; i < list.length; i++){
+    list[i].checked = false;
+  }
+}
+
+function clearQuizInputs() {
+  clearCheckedQuizValues('cat-sex-input-quiz');
+  clearCheckedQuizValues('cat-age-input-quiz');
+  clearCheckedQuizValues('cat-chonk-input-quiz');
+  clearCheckedQuizValues('cat-cuddly-input-quiz');
+  clearCheckedQuizValues('cat-playful-input-quiz');
+  clearCheckedQuizValues('cat-other-pets-input-quiz');
+  clearCheckedQuizValues('cat-fur-input-quiz');
+};
+
 quizButton.addEventListener('click', function (event) {
   quizModal.classList.toggle('hidden');
   quizModalBG.classList.toggle('hidden');
@@ -163,6 +176,7 @@ quizButton.addEventListener('click', function (event) {
 cancelButtonQuiz.addEventListener('click', function (event) {
   quizModal.classList.toggle('hidden');
   quizModalBG.classList.toggle('hidden');
+  clearQuizInputs();
 });
 
 submitButtonQuiz.addEventListener('click', function (event) {
@@ -201,6 +215,7 @@ submitButtonQuiz.addEventListener('click', function (event) {
     request.send(requestBody);
     quizModal.classList.toggle('hidden');
     quizModalBG.classList.toggle('hidden');
+    clearQuizInputs();
   } else {
     alert("Finish the quiz, you must.");
   }
