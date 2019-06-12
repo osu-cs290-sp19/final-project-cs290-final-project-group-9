@@ -269,6 +269,88 @@ for (var i = 0; i < kittenCards.length; i++){
  //END OF KITTEN SIDEBAR
 
 //Start filter search
+var filterButton = document.getElementById('filter-button');
+filterButton.addEventListener('click', function(event){
+  console.log("===filter button pressed===");
+  if(document.querySelector('input[name="sex"]:checked') != null){
+    var selectedSex = document.querySelector('input[name="sex"]:checked').value;
+    console.log("Sex: ", selectedSex);
+  }
+  if(document.querySelector('input[name="age"]:checked') != null){
+    var selectedAge = document.querySelector('input[name="age"]:checked').value;
+    console.log("Age: ", selectedAge);
+  }
+  var selectedChonk = document.getElementById('cat-chonk-filter').checked;
+  console.log("Chonk?: ", selectedChonk);
+  if(document.querySelector('input[name="cuddly"]:checked') != null){
+    var selectedCuddle = document.querySelector('input[name="cuddly"]:checked').value;
+    console.log("Cuddle: ", selectedCuddle);
+  }
+  if(document.querySelector('input[name="playful"]:checked') != null){
+    var selectedPlay = document.querySelector('input[name="playful"]:checked').value;
+    console.log("Play: ", selectedPlay);
+  }
+  var selectedOtherPets = document.getElementById('cat-otherPets').checked;
+  console.log("Other Pets?: ", selectedOtherPets);
+  if(document.querySelector('input[name="coatLength"]:checked') != null){
+    var selectedFur = document.querySelector('input[name="coatLength"]:checked').value;
+    console.log("Fur: ", selectedFur);
+  }
+  
+  var filter = {
+    name: "filter",
+    sex: selectedSex,
+    age: selectedAge,
+    chonk: selectedChonk,
+    cuddle: selectedCuddle,
+    play: selectedPlay,
+    pets: selectedOtherPets,
+    coat: selectedFur,
+    desc: "The user's filter results",
+    img: "filter.jpg"
+  };
+
+  var request = new XMLHttpRequest();
+  var url = '/filter';
+  request.open('POST', url);
+  var requestBody = JSON.stringify(filter);
+  console.log("Request body:", requestBody);
+  request.addEventListener('load', function(event){
+    if(event.target.status === 200){
+        console.log("Success?");
+        var filteredCats = JSON.parse(event.target.response);
+        console.log("filtered cats: ", filteredCats);
+        //alert('Cats that match your search: \n' + filteredCats.name + ' \nWhy not click on their picture?');
+        var kittenContainer = document.getElementsByClassName('kitten-container')[0];
+        var allCats = document.getElementsByClassName('kitten-card');
+        console.log("allCats: ", allCats);
+        console.log("filterCat: ", filteredCats.filteredKittens[0]);
+        console.log("filterName: ", filteredCats.filteredKittens[0]._id);
+        var id = allCats[0].id;
+        console.log("id allCats: ", id);
+        
+        for (var i = 0; i < allCats.length; i++) {
+          var matched = false;
+          for(var j = 0; j < filteredCats.filteredKittens.length; j++){
+            console.log("filterName: ", filteredCats.filteredKittens[j]._id);
+            console.log("AllName: ", allCats[i].id)
+            if(allCats[i].id === filteredCats.filteredKittens[j]._id){
+              matched = true;
+            }
+          };
+          if(!matched){
+            allCats[i].classList.add("hidden");
+          }
+        };
+    }
+    else{
+        var message = event.target.response;
+        alert('Error filtering cats: ' + message);
+    }
+  });
+  request.setRequestHeader('content-type', 'application/json');
+  request.send(requestBody);
+});
 
  //START OF ADOPT ME
 var adoptButton = document.getElementsByClassName('adopt-button')[0];

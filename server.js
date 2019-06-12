@@ -231,6 +231,366 @@ app.post('/perfectCat', function (req, res, next) {
   }
 });
 
+
+//FilterSearch
+app.post('/filter', function(req, res, next){
+  console.log("=====Recieved request for filtered list");
+  if(req.body){
+    console.log("body: ", req.body);
+    var filtered = db.collection('cats');
+    if(req.body.sex != "No preference"){
+      if(req.body.age != "No preference"){
+        if(req.body.cuddle != "No preference"){
+          if(req.body.play != "No preference"){
+            if(req.body.coat != "No preference"){
+              if(req.body.age == 1){
+                filtered = filtered.find({age: {$lte: 1}, sex: req.body.sex, cuddle: req.body.cuddle, play: req.body.play, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 4){
+                filtered = filtered.find({age: {$gte: 2}, age: {$lte: 5}, sex: req.body.sex, cuddle: req.body.cuddle, play: req.body.play, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 7){
+                filtered = filtered.find({age: {$gte: 6}, age: {$lte: 9}, sex: req.body.sex, cuddle: req.body.cuddle, play: req.body.play, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else{
+                filtered = filtered.find({age: {$gte:10}, sex: req.body.sex, cuddle: req.body.cuddle, play: req.body.play, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+            }
+            else{
+              if(req.body.age == 1){
+                filtered = filtered.find({age: {$lte: 1}, sex: req.body.sex, cuddle: req.body.cuddle, play: req.body.play, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 4){
+                filtered = filtered.find({age: {$gte: 2}, age: {$lte: 5}, sex: req.body.sex, cuddle: req.body.cuddle, play: req.body.play, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 7){
+                filtered = filtered.find({age: {$gte: 6}, age: {$lte: 9}, sex: req.body.sex, cuddle: req.body.cuddle, play: req.body.play, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else{
+                filtered = filtered.find({age: {$gte:10}, sex: req.body.sex, cuddle: req.body.cuddle, play: req.body.play, chonk: req.body.chonk, pets: req.body.pets});
+              }
+            }
+          }
+          else{
+            if(req.body.coat != "No preference"){
+              if(req.body.age == 1){
+                filtered = filtered.find({age: {$lte: 1}, sex: req.body.sex, cuddle: req.body.cuddle, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 4){
+                filtered = filtered.find({age: {$gte: 2}, age: {$lte: 5}, sex: req.body.sex, cuddle: req.body.cuddle, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 7){
+                filtered = filtered.find({age: {$gte: 6}, age: {$lte: 9}, sex: req.body.sex, cuddle: req.body.cuddle, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else{
+                filtered = filtered.find({age: {$gte:10}, sex: req.body.sex, cuddle: req.body.cuddle, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+            }
+            else{
+              if(req.body.age == 1){
+                filtered = filtered.find({age: {$lte: 1}, sex: req.body.sex, cuddle: req.body.cuddle, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 4){
+                filtered = filtered.find({age: {$gte: 2}, age: {$lte: 5}, sex: req.body.sex, cuddle: req.body.cuddle, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 7){
+                filtered = filtered.find({age: {$gte: 6}, age: {$lte: 9}, sex: req.body.sex, cuddle: req.body.cuddle, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else{
+                filtered = filtered.find({age: {$gte:10}, sex: req.body.sex, cuddle: req.body.cuddle, chonk: req.body.chonk, pets: req.body.pets});
+              }
+            }
+          }
+        }
+        else{
+          if(req.body.play != "No preference"){
+            if(req.body.coat != "No preference"){
+              if(req.body.age == 1){
+                filtered = filtered.find({age: {$lte: 1}, sex: req.body.sex, play: req.body.play, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 4){
+                filtered = filtered.find({age: {$gte: 2}, age: {$lte: 5}, sex: req.body.sex, play: req.body.play, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 7){
+                filtered = filtered.find({age: {$gte: 6}, age: {$lte: 9}, sex: req.body.sex, play: req.body.play, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else{
+                filtered = filtered.find({age: {$gte:10}, sex: req.body.sex, play: req.body.play, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+            }
+            else{
+              if(req.body.age == 1){
+                filtered = filtered.find({age: {$lte: 1}, sex: req.body.sex, play: req.body.play, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 4){
+                filtered = filtered.find({age: {$gte: 2}, age: {$lte: 5}, sex: req.body.sex, play: req.body.play, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 7){
+                filtered = filtered.find({age: {$gte: 6}, age: {$lte: 9}, sex: req.body.sex, play: req.body.play, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else{
+                filtered = filtered.find({age: {$gte:10}, sex: req.body.sex, play: req.body.play, chonk: req.body.chonk, pets: req.body.pets});
+              }
+            }
+          }
+          else{
+            if(req.body.coat != "No preference"){
+              if(req.body.age == 1){
+                filtered = filtered.find({age: {$lte: 1}, sex: req.body.sex, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 4){
+                filtered = filtered.find({age: {$gte: 2}, age: {$lte: 5}, sex: req.body.sex, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 7){
+                filtered = filtered.find({age: {$gte: 6}, age: {$lte: 9}, sex: req.body.sex, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else{
+                filtered = filtered.find({age: {$gte:10}, sex: req.body.sex, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+            }
+            else{
+              if(req.body.age == 1){
+                filtered = filtered.find({age: {$lte: 1}, sex: req.body.sex, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 4){
+                filtered = filtered.find({age: {$gte: 2}, age: {$lte: 5}, sex: req.body.sex, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 7){
+                filtered = filtered.find({age: {$gte: 6}, age: {$lte: 9}, sex: req.body.sex, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else{
+                filtered = filtered.find({age: {$gte:10}, sex: req.body.sex, chonk: req.body.chonk, pets: req.body.pets});
+              }
+            }
+          }
+        }
+      }
+      else{
+        if(req.body.cuddle != "No preference"){
+          if(req.body.play != "No preference"){
+            if(req.body.coat != "No preference"){
+              filtered = filtered.find({sex: req.body.sex, cuddle: req.body.cuddle, play: req.body.play, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+            }
+            else{
+              filtered = filtered.find({sex: req.body.sex, cuddle: req.body.cuddle, play: req.body.play, chonk: req.body.chonk, pets: req.body.pets});
+            }
+          }
+          else{
+            if(req.body.coat != "No preference"){
+              filtered = filtered.find({sex: req.body.sex, cuddle: req.body.cuddle, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+            }
+            else{
+              filtered = filtered.find({sex: req.body.sex, cuddle: req.body.cuddle, chonk: req.body.chonk, pets: req.body.pets});
+            }
+          }
+        }
+        else{
+          if(req.body.play != "No preference"){
+            if(req.body.coat != "No preference"){
+              filtered = filtered.find({sex: req.body.sex, play: req.body.play, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+            }
+            else{                
+              filtered = filtered.find({sex: req.body.sex, play: req.body.play, chonk: req.body.chonk, pets: req.body.pets});
+            }
+          }
+          else{
+            if(req.body.coat != "No preference"){
+              filtered = filtered.find({sex: req.body.sex, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+            }
+            else{                
+              filtered = filtered.find({sex: req.body.sex, chonk: req.body.chonk, pets: req.body.pets});
+            }
+          }
+        }
+      }
+    }
+    else{
+      if(req.body.age != "No preference"){
+        if(req.body.cuddle != "No preference"){
+          if(req.body.play != "No preference"){
+            if(req.body.coat != "No preference"){
+              if(req.body.age == 1){
+                filtered = filtered.find({age: {$lte: 1}, cuddle: req.body.cuddle, play: req.body.play, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 4){
+                filtered = filtered.find({age: {$gte: 2}, age: {$lte: 5}, cuddle: req.body.cuddle, play: req.body.play, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 7){
+                filtered = filtered.find({age: {$gte: 6}, age: {$lte: 9}, cuddle: req.body.cuddle, play: req.body.play, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else{
+                filtered = filtered.find({age: {$gte:10}, cuddle: req.body.cuddle, play: req.body.play, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+            }
+            else{
+              if(req.body.age == 1){
+                filtered = filtered.find({age: {$lte: 1}, cuddle: req.body.cuddle, play: req.body.play, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 4){
+                filtered = filtered.find({age: {$gte: 2}, age: {$lte: 5}, cuddle: req.body.cuddle, play: req.body.play, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 7){
+                filtered = filtered.find({age: {$gte: 6}, age: {$lte: 9}, cuddle: req.body.cuddle, play: req.body.play, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else{
+                filtered = filtered.find({age: {$gte:10}, cuddle: req.body.cuddle, play: req.body.play, chonk: req.body.chonk, pets: req.body.pets});
+              }
+            }
+          }
+          else{
+            if(req.body.coat != "No preference"){
+              if(req.body.age == 1){
+                filtered = filtered.find({age: {$lte: 1}, cuddle: req.body.cuddle, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 4){
+                filtered = filtered.find({age: {$gte: 2}, age: {$lte: 5}, cuddle: req.body.cuddle, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 7){
+                filtered = filtered.find({age: {$gte: 6}, age: {$lte: 9}, cuddle: req.body.cuddle, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else{
+                filtered = filtered.find({age: {$gte:10}, cuddle: req.body.cuddle, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+            }
+            else{
+              if(req.body.age == 1){
+                filtered = filtered.find({age: {$lte: 1}, cuddle: req.body.cuddle, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 4){
+                filtered = filtered.find({age: {$gte: 2}, age: {$lte: 5}, cuddle: req.body.cuddle, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 7){
+                filtered = filtered.find({age: {$gte: 6}, age: {$lte: 9}, cuddle: req.body.cuddle, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else{
+                filtered = filtered.find({age: {$gte:10}, cuddle: req.body.cuddle, chonk: req.body.chonk, pets: req.body.pets});
+              }
+            }
+          }
+        }
+        else{
+          if(req.body.play != "No preference"){
+            if(req.body.coat != "No preference"){
+              if(req.body.age == 1){
+                filtered = filtered.find({age: {$lte: 1}, play: req.body.play, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 4){
+                filtered = filtered.find({age: {$gte: 2}, age: {$lte: 5}, play: req.body.play, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 7){
+                filtered = filtered.find({age: {$gte: 6}, age: {$lte: 9}, play: req.body.play, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else{
+                filtered = filtered.find({age: {$gte:10}, play: req.body.play, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+            }
+            else{
+              if(req.body.age == 1){
+                filtered = filtered.find({age: {$lte: 1}, play: req.body.play, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 4){
+                filtered = filtered.find({age: {$gte: 2}, age: {$lte: 5}, play: req.body.play, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 7){
+                filtered = filtered.find({age: {$gte: 6}, age: {$lte: 9}, play: req.body.play, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else{
+                filtered = filtered.find({age: {$gte:10}, play: req.body.play, chonk: req.body.chonk, pets: req.body.pets});
+              }
+            }
+          }
+          else{
+            if(req.body.coat != "No preference"){
+              if(req.body.age == 1){
+                filtered = filtered.find({age: {$lte: 1}, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 4){
+                filtered = filtered.find({age: {$gte: 2}, age: {$lte: 5}, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 7){
+                filtered = filtered.find({age: {$gte: 6}, age: {$lte: 9}, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else{
+                filtered = filtered.find({age: {$gte:10}, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+              }
+            }
+            else{
+              if(req.body.age == 1){
+                filtered = filtered.find({age: {$lte: 1}, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 4){
+                filtered = filtered.find({age: {$gte: 2}, age: {$lte: 5}, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else if(req.body.age == 7){
+                filtered = filtered.find({age: {$gte: 6}, age: {$lte: 9}, chonk: req.body.chonk, pets: req.body.pets});
+              }
+              else{
+                filtered = filtered.find({age: {$gte:10}, chonk: req.body.chonk, pets: req.body.pets});
+              }
+            }
+          }
+        }
+      }
+      else{
+        if(req.body.cuddle != "No preference"){
+          if(req.body.play != "No preference"){
+            if(req.body.coat != "No preference"){
+              filtered = filtered.find({cuddle: req.body.cuddle, play: req.body.play, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+            }
+            else{
+              filtered = filtered.find({cuddle: req.body.cuddle, play: req.body.play, chonk: req.body.chonk, pets: req.body.pets});
+            }
+          }
+          else{
+            if(req.body.coat != "No preference"){
+              filtered = filtered.find({cuddle: req.body.cuddle, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+            }
+            else{
+              filtered = filtered.find({cuddle: req.body.cuddle, chonk: req.body.chonk, pets: req.body.pets});
+            }
+          }
+        }
+        else{
+          if(req.body.play != "No preference"){
+            if(req.body.coat != "No preference"){
+              filtered = filtered.find({play: req.body.play, coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+            }
+            else{                
+              filtered = filtered.find({play: req.body.play, chonk: req.body.chonk, pets: req.body.pets});
+            }
+          }
+          else{
+            if(req.body.coat != "No preference"){
+              filtered = filtered.find({coat: req.body.coat, chonk: req.body.chonk, pets: req.body.pets});
+            }
+            else{                
+              filtered = filtered.find({chonk: req.body.chonk, pets: req.body.pets});
+            }
+          }
+        }
+      }
+    }
+    filtered.toArray(function (err, filteredcats) {
+      if (err) {
+        res.status(500).send({
+          error: "Oh, no! The Sith have attacked the Database! Call the Jedi, quick!"
+        });
+      } 
+      else if (filteredcats.length) {
+        console.log("Here's the final array of cats ", filteredcats);
+        var filteredKittens = {
+          filteredKittens: filteredcats
+        }
+        res.status(200).send(filteredKittens);
+      }
+      else{
+        console.log('==array is empty');
+        next();
+      }
+    });
+  }
+});
+
 //style sheet
 app.get('*/style.css', function(req, res, next) {
     res.status(200).sendFile(path.join(__dirname, 'public', 'style.css'));
@@ -264,3 +624,4 @@ MongoClient.connect(mongoUrl, function (err, client) {
         console.log("== Server is listening on port", port);
     });
 });
+
