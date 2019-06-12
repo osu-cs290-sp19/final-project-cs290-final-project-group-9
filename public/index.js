@@ -268,6 +268,8 @@ for (var i = 0; i < kittenCards.length; i++){
 }
  //END OF KITTEN SIDEBAR
 
+//Start filter search
+
  //START OF ADOPT ME
 var adoptButton = document.getElementsByClassName('adopt-button')[0];
 adoptButton.addEventListener('click', function(event){
