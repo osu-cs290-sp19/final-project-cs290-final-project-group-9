@@ -584,6 +584,9 @@ app.post('/filter', function(req, res, next){
         res.status(200).send(filteredKittens);
       }
       else{
+        res.status(400).send({
+          error: "Oh, no! There are no cats that match your search!"
+        });
         console.log('==array is empty');
         next();
       }
