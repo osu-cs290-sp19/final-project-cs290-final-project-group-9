@@ -8,63 +8,64 @@
     <div class="filter-body">
       <div id="filter-search-sex">
         <h3>Sex:</h3>
-        <input name="sex" class="cat-sex-search" type="radio">male</input>
-        <input name="sex" class="cat-sex-search" type="radio">female</input>
-        <input name="sex" class="cat-sex-search" type="radio">No preference</input>
+        <input name="sex" class="cat-sex-search" type="radio" value="male">male</input>
+        <input name="sex" class="cat-sex-search" type="radio" value="female">female</input>
+        <input name="sex" class="cat-sex-search" type="radio" value="No preference">No preference</input>
       </div>
     </div>
 
     <div id="filter-search-age">
       <h3>Age:</h3>
-      <input name="age" class="cat-age-search" type="radio">0-1 years</input>
-      <input name="age" class="cat-age-search" type="radio">2-5 years</input>
-      <input name="age" class="cat-age-search" type="radio">6-9 years</input>
-      <input name="age" class="cat-age-search" type="radio">10+ years</input>
-      <input name="age" class="cat-age-search" type="radio">No preference</input>
+      <input name="age" class="cat-age-search" type="radio" value="1">0-1 years</input>
+      <input name="age" class="cat-age-search" type="radio" value="4">2-5 years</input>
+      <input name="age" class="cat-age-search" type="radio" value="7">6-9 years</input>
+      <input name="age" class="cat-age-search" type="radio" value="10">10+ years</input>
+      <input name="age" class="cat-age-search" type="radio" value="No preference">No preference</input>
     </div>
   </div>
 
   <div id="filter-search-chonk">
     <h3>Chonk or No Chonk:</h3>
-    <input name="chonk" class="cat-chonk-search" type="radio" value="true">CHONK!</input>
-    <input name="chonk" class="cat-chonk-search" type="radio" value="false">No chonk...</input>
-    <input name="chonk" class="cat-chonk-search" type="radio" value="null">No preference</input>
+    <label for="cat-chonk-filter">Chonk?</label>
+    <input id="cat-chonk-filter" type="checkbox"></input>
   </div>
 
   <div id="filter-search-cuddly">
       <h3>Cuddlyness Rating:</h3>
-      <input name="cuddly" class="cat-cuddly-search" type="radio">1/5</input>
-      <input name="cuddly" class="cat-cuddly-search" type="radio">2/5</input>
-      <input name="cuddly" class="cat-cuddly-search" type="radio">3/5</input>
-      <input name="cuddly" class="cat-cuddly-search" type="radio">4/5</input>
-      <input name="cuddly" class="cat-cuddly-search" type="radio">5/5</input>
-      <input name="cuddly" class="cat-cuddly-search" type="radio">No preference</input>
-    </div>
-
-    <div id="filter-search-playful">
-        <h3>Playfulness Rating:</h3>
-        <input name="playful" class="cat-playful-search" type="radio">1/5</input>
-        <input name="playful" class="cat-playful-search" type="radio">2/5</input>
-        <input name="playful" class="cat-playful-search" type="radio">3/5</input>
-        <input name="playful" class="cat-playful-search" type="radio">4/5</input>
-        <input name="playful" class="cat-playful-search" type="radio">5/5</input>
-        <input name="playful" class="cat-playful-search" type="radio">No preference</input>
-      </div>
-
-      <div id="filter-search-otherPets">
-          <h3>Good With Other Pets:</h3>
-          <input name="otherPets" class="cat-otherPets-search" type="radio">Yes</input>
-          <input name="otherPets" class="cat-otherPets-search" type="radio">No</input>
-          <input name="otherPets" class="cat-otherPets-search" type="radio">No preference</input>
-        </div>
-
-        <div id="filter-search-coatLength">
-            <h3>Coat Length:</h3>
-            <input name="coatLength" class="cat-coatLength-search" type="radio">Short</input>
-            <input name="coatLength" class="cat-coatLength-search" type="radio">Medium</input>
-            <input name="coatLength" class="cat-coatLength-search" type="radio">Long</input>
-            <input name="coatLength" class="cat-coatLength-search" type="radio">No preference</input>
-          </div>
-
+      <input name="cuddly" class="cat-cuddly-search" type="radio" value="1">1/5</input>
+      <input name="cuddly" class="cat-cuddly-search" type="radio" value="2">2/5</input>
+      <input name="cuddly" class="cat-cuddly-search" type="radio" value="3">3/5</input>
+      <input name="cuddly" class="cat-cuddly-search" type="radio" value="4">4/5</input>
+      <input name="cuddly" class="cat-cuddly-search" type="radio" value="5">5/5</input>
+      <input name="cuddly" class="cat-cuddly-search" type="radio" value="No preference">No preference</input>
   </div>
+
+  <div id="filter-search-playful">
+      <h3>Playfulness Rating:</h3>
+      <input name="playful" class="cat-playful-search" type="radio" value="1">1/5</input>
+      <input name="playful" class="cat-playful-search" type="radio" value="2">2/5</input>
+      <input name="playful" class="cat-playful-search" type="radio" value="3">3/5</input>
+      <input name="playful" class="cat-playful-search" type="radio" value="4">4/5</input>
+      <input name="playful" class="cat-playful-search" type="radio" value="5">5/5</input>
+      <input name="playful" class="cat-playful-search" type="radio" value="No preference">No preference</input>
+  </div>
+
+  <div id="filter-search-otherPets">
+      <h3>Good With Other Pets:</h3>
+      <label for="cat-otherPets">Good w/ other pets?</label>
+      <input id="cat-otherPets" type="checkbox"></input>
+  </div>
+
+  <div id="filter-search-coatLength">
+      <h3>Coat Length:</h3>
+      <input name="coatLength" class="cat-coatLength-search" type="radio" value="Short">Short</input>
+      <input name="coatLength" class="cat-coatLength-search" type="radio" value="Medium">Medium</input>
+      <input name="coatLength" class="cat-coatLength-search" type="radio" value="Long">Long</input>
+      <input name="coatLength" class="cat-coatLength-search" type="radio" value="No preference">No preference</input>
+  </div>
+
+  <div id="filter-button">
+    <button type="button">Filter search</button>
+  </div>
+  
 </sidebar>
