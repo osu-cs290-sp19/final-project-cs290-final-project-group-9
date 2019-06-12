@@ -288,7 +288,10 @@ adoptButton.addEventListener('click', function(event){
         //success!
         var adoptedCatElement = document.getElementById(selectedCat._id);
         adoptedCatElement.parentNode.removeChild(adoptedCatElement);
-        alert("YOU ADOPTED A CAT IDIOT!");
+        var catObject = JSON.parse(event.target.response);
+        console.log(event.target.response);
+        //console.log("name", catObject.name);
+        alert("Congradulations, adopted "+ catObject.name + " you have!");
       }
       else {
         var message = event.target.response;

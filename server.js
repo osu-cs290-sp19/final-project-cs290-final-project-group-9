@@ -71,7 +71,7 @@ app.post('/getCat', function(req, res, next) {
     res.status(400).send("invalid request");
   }
 });
-
+ 
 //adopt cat response
 app.post('/adoptCat', function(req, res, next) {
   console.log("body:", req.body);
@@ -79,13 +79,23 @@ app.post('/adoptCat', function(req, res, next) {
     console.log("body:", req.body);
     console.log("body.id:", req.body.id);
     var collection = db.collection('cats');
-    collection.deleteOne({_id: ObjectId(req.body.id)}, function(err, result){
+    collection.find(ObjectId(req.body.id)).toArray(function(err, catArray){
       if (err) {
-        res.status(500).send("screwed up, database has done.");
+        res.status(500).send("Couldn't make array!");
       }
       else {
-        console.log('successfully removed catto from database!');
-        res.status(200).send();
+        var catObject = catArray[0];
+        console.log("cat object...", catObject);
+
+        collection.deleteOne({_id: ObjectId(req.body.id)}, function(err, result){
+          if (err) {
+            res.status(500).send("screwed up, database has done.");
+          }
+          else {
+            console.log('successfully removed catto from database!');
+            res.status(200).send(JSON.stringify(catObject));
+          }
+        });
       }
     });
   }
